@@ -221,11 +221,20 @@
 
             <div class="row">
               <h5>Authorization</h5>
-              <img src="img/recaptcha.gif" />
+              <img src="img/recaptcha.gif" class="captcha_gif" />
+              <div class="row">
               <h4>Signature</h4>
               <h4>Title</h4>
-              <h4>Date</h4>
-              <input type="date" class="datepicker">
+                <div class="input-field col s6">
+                  <input id="applicant_title" type="email" class="validate">
+                  <label for="applicant_title">Your official position</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <h4>Date</h4>
+                <input type="date" placeholder="choose a date" class="datepicker col s6">
+              </div>
 
             </div>
 
