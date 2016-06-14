@@ -1,0 +1,34 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.footer-copyright {
+  background-color: rgba(10, 10, 10, .8) !important
+}
+
+.savi_logo {
+  max-width: 138px;
+  margin-top: 5px;
+}
+
+
+/* SAVI COLORS */
+
+.grey_md_bg {
+  background-color: RGBA(52, 52, 52, 1.00) !important
+}
+
+.teal_md_cl {
+  color: RGBA(67, 87, 93, 1.00)
+}
