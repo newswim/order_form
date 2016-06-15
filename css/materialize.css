@@ -6041,7 +6041,7 @@ form p:last-child {
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
-  left: -9999px;
+  /*left: -9999px;*/
   opacity: 0;
 }
 
@@ -6052,6 +6052,7 @@ form p:last-child {
 [type="checkbox"] + label {
   position: relative;
   padding-left: 35px;
+  padding-top: 5px;
   cursor: pointer;
   display: inline-block;
   height: 25px;
@@ -6078,7 +6079,7 @@ form p:last-child {
   z-index: 0;
   border: 2px solid #5a5a5a;
   border-radius: 1px;
-  margin-top: 2px;
+  margin-top: 8px;
   transition: .2s;
 }
 

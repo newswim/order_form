@@ -3,12 +3,15 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <title>Become a SAVI Dealer</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!-- Google Analytics + reCAPTCHA -->
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
   <nav class="grey_md_bg" role="navigation">
@@ -44,9 +47,11 @@
 
   <div class="container">
     <div class="section">
-      <div class="row">
+
+      <div class="row form_outline">
           <!-- TODO: Get the api end we'll push to -->
-          <form class="col s12" method="POST" action="http://www.myvtigerwebroot.com/modules/Webforms/post.php" name="demo">
+          <form class="col s12" method="POST" action="http://www.myvtigerwebroot.com/modules/Webforms/post.php" name="dealer_application">
+
             <div class="row">
               <div class="input-field col s12">
                 <input id="legal_business_name" type="text" class="validate">
@@ -56,8 +61,8 @@
 
             <div class="row">
               <div class="input-field col s12">
-                <input id="dba" type="text" class="validate">
-                <label for="dba">DBA</label>
+                <input id="doing_business_as" type="text" class="validate">
+                <label for="doing_business_as">Doing Business As</label>
               </div>
             </div>
 
@@ -91,7 +96,7 @@
                 <label for="country">Country</label>
               </div>
               <div class="input-field col s6">
-                <input id="telephone" type="text" class="validate">
+                <input id="telephone" type="text" class="validate" title="Must be of pattern (x-xxx-xxx-xxxx)" pattern="^\d{4}-\d{3}-\d{4}$" >
                 <label for="telephone">Telephone</label>
               </div>
               <div class="input-field col s6">
@@ -220,15 +225,20 @@
 
             <div class="row">
               <h5>Authorization</h5>
-              <p>
-                <input type="checkbox" id="agree_with_terms" />
-                <label for="agree_with_terms">I agree with the Terms of Service</label>
-              </p>
-              <p>
-                <input type="checkbox" id="agree_with_pp" />
+              <div class="g-recaptcha" data-sitekey="6LcbqyITAAAAAOS-tjljasR0HPYnlCocBJLYB0IY"></div>
+            <fieldset>
+              <div class="col s4">
+                <input type="checkbox" required id="agree_with_terms" />
+                <label for="agree_with_terms" data-error="please select">I agree with the Terms of Service</label>
+              </div>
+              <div class="col s4">
+                <input type="checkbox" required id="agree_with_pp" />
                 <label for="agree_with_pp">I agree with the Privacy Policy</label>
-              </p>
-              <img src="img/recaptcha.gif" class="captcha_gif" />
+              </div>
+
+            </fieldset>
+
+
               <div class="row">
                 <div class="input-field col s6">
                   <input id="applicant_title" type="email" class="validate">
@@ -243,13 +253,13 @@
 
             </div>
 
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
-            </button>
+            <input type="hidden" name="publicid" value="030470fa40f0357782a8d6a53cd53b58"></input>
+            <!-- TODO: Obtain publicID for Leads module -->
+
+            <input class="btn waves-effect waves-light" type="submit" name="action" />
 
           </form>
         </div>
-
     </div>
     <br><br>
   </div>
@@ -264,8 +274,8 @@
         <div class="col l3 s12">
           <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="white-text" href="#!">Privacy Policy</a></li>
-            <li><a class="white-text" href="#!">Terms of Service</a></li>
+            <li><a class="white-text" href="http://www.savicontrols.com/#privacy-modal">Privacy Policy</a></li>
+            <li><a class="white-text" href="http://www.savicontrols.com/#terms-modal">Terms of Service</a></li>
           </ul>
         </div>
         <div class="col l3 s12">
@@ -278,7 +288,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Copyright 2016 SAVI Controls, LLC.
+        Copyright 2016 SAVI Controls, LLC.
       </div>
     </div>
   </footer>
