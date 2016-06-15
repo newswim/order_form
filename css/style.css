@@ -19,7 +19,7 @@ label {
 
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
-  margin-top: 8px !important;
+  margin-top: 14px !important;
 }
 
 .footer-copyright {
