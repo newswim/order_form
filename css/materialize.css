@@ -2591,7 +2591,7 @@ input[type="search"]::-webkit-search-decoration {
  */
 fieldset {
   border: 1px solid #c0c0c0;
-  margin: 0 2px;
+  margin: 20px 2px;
   padding: 0.35em 0.625em 0.75em;
 }
 
@@ -5790,6 +5790,7 @@ textarea.materialize-textarea + label:after {
   top: 0.8rem;
   left: 0.75rem;
   font-size: 1rem;
+  font-weight: 300;
   cursor: text;
   transition: .2s ease-out;
 }

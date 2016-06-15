@@ -13,12 +13,27 @@
 	font-size: inherit;
 }
 
-.mg_btm_40 {
-  margin-bottom: 40px;
+label {
+    color: #6d6969 !important
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  margin-top: 8px !important;
 }
 
 .footer-copyright {
   background-color: rgba(10, 10, 10, .8) !important
+}
+
+/* Dealer App styling */
+
+.mg_btm_40 {
+  margin-bottom: 40px;
+}
+
+.mg_btm_20 {
+  margin-bottom: 20px;
 }
 
 .savi_logo {
@@ -34,19 +49,6 @@
   background-color: rgba(20,0,0,.04);
   padding: 20px;
 }
-
-/* OVERRIDES */
-
-label {
-    color: #6d6969 !important
-}
-
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-  margin-top: 8px !important;
-}
-
-
 
 /* SAVI COLORS */
 

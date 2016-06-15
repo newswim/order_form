@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+
+<!-- TODO:
+- add a favicon
+- comply to Leads schema ...or create custom module
+- form should also reflect which fields are mandatory in vTiger module, ie.
+  - html element name == 'Webforms reference Field' -->
+
+
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -225,7 +233,7 @@
             </div>
 
             <div class="row">
-              <h5>Authorization</h5>
+              <h5 class="mg_btm_20">Authorization</h5>
               <fieldset>
                 <div class="col s4">
                   <input type="checkbox" required id="agree_with_terms" />
@@ -245,7 +253,7 @@
 
               <div class="row">
                 <h5>Today's Date</h5>
-                <input type="date" placeholder="choose a date" class="datepicker col s6">
+                <input type="date" placeholder="choose a date" class="datepicker col s6" required >
               </div>
 
             </div>
