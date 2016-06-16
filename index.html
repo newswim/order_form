@@ -20,6 +20,7 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
   <!-- Google Analytics + reCAPTCHA -->
+
   <script src='https://www.google.com/recaptcha/api.js'></script>
 
   <!-- favicon -->
@@ -64,7 +65,7 @@
       <div class="row form_outline">
           <form
               class="col s12"
-              name="dealer_application"
+              id="dealer_application"
               action="http://71.164.232.228/savicontrols/modules/Webforms/capture.php"
               method="post"
               accept-charset="utf-8"
@@ -282,7 +283,7 @@
               </div>
               <div class="row">
                 <h5>Today's Date</h5>
-                <input type="date" name placeholder="choose a date" class="datepicker col s6" >
+                <input type="date" placeholder="choose a date" class="_todays_date datepicker col s6" >
               </div>
             </div>
 
@@ -464,6 +465,7 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/recaptcha_required.js"></script>
 
   </body>
 </html>
