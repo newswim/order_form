@@ -14,7 +14,7 @@
 }
 
 label {
-    color: #6d6969 !important
+  color: #6d6969 !important
 }
 
 [type="checkbox"]:not(:checked),
@@ -36,9 +36,20 @@ label {
   margin-bottom: 20px;
 }
 
+._fw_300 {
+  font-weight: 300;
+}
+
 .savi_logo {
   max-width: 138px;
   margin-top: 5px;
+  height: 56px;
+}
+
+@media (max-width: 601px) {
+  .savi_logo {
+    height: 46px;
+  }
 }
 
 .captcha_gif {
