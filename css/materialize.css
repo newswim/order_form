@@ -4899,7 +4899,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #26545C;
+  background-color: #26A69A;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
@@ -4907,7 +4907,7 @@ small {
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #155A62;
+  background-color: #1F897F;
 }
 
 .btn-floating {
@@ -4920,7 +4920,7 @@ small {
   height: 37px;
   line-height: 37px;
   padding: 0;
-  background-color: #26545C;
+  background-color: #26A69A;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
@@ -5601,8 +5601,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #155A62;
-  box-shadow: 0 1px 0 0 #155A62;
+  border-bottom: 1px solid #26A69A;
+  box-shadow: 0 1px 0 0 #26A69A;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -5971,12 +5971,12 @@ textarea.materialize-textarea {
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:before,
 [type="radio"].with-gap:checked + label:after {
-  border: 2px solid #155A62;
+  border: 2px solid #26A69A;
 }
 
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:after {
-  background-color: #155A62;
+  background-color: #26A69A;
   z-index: 0;
 }
 
