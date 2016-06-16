@@ -4899,7 +4899,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: #26545C;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
@@ -4907,7 +4907,7 @@ small {
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #2bbbad;
+  background-color: #155A62;
 }
 
 .btn-floating {
@@ -4920,7 +4920,7 @@ small {
   height: 37px;
   line-height: 37px;
   padding: 0;
-  background-color: #26a69a;
+  background-color: #26545C;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
@@ -4937,7 +4937,7 @@ small {
 }
 
 .btn-floating:hover {
-  background-color: #26a69a;
+  background-color: #4f8a94;
 }
 
 .btn-floating:before {
@@ -5601,8 +5601,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #26a69a;
-  box-shadow: 0 1px 0 0 #26a69a;
+  border-bottom: 1px solid #155A62;
+  box-shadow: 0 1px 0 0 #155A62;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -5646,8 +5646,8 @@ input[type=search].valid,
 input[type=search]:focus.valid,
 textarea.materialize-textarea.valid,
 textarea.materialize-textarea:focus.valid {
-  border-bottom: 1px solid #4CAF50;
-  box-shadow: 0 1px 0 0 #4CAF50;
+  border-bottom: 1px solid #4f8a94;
+  box-shadow: 0 1px 0 0 #4f8a94;
 }
 
 input:not([type]).valid + label:after,
@@ -5971,12 +5971,12 @@ textarea.materialize-textarea {
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:before,
 [type="radio"].with-gap:checked + label:after {
-  border: 2px solid #26a69a;
+  border: 2px solid #155A62;
 }
 
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:after {
-  background-color: #26a69a;
+  background-color: #155A62;
   z-index: 0;
 }
 
