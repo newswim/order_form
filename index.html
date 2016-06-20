@@ -5,6 +5,9 @@
 - function that requires the reCAPTCHA (done)
 - copy 'Legal Name' field into 'Company' field (semi-finished)
 - comply to Leads schema ...or create custom module (done)
+- add 'all filds required unless otherwise indicated' to top section
+- mark all optional fields as optional
+- seems like 'Form of Business' field isn't getting added
 - form should also reflect which fields are mandatory in vTiger module, ie.
   - html element name == 'Webforms reference Field' -->
 
@@ -86,7 +89,7 @@
               </div>
 
               <div class="input-field col s12">
-                <input name="company" type="text" id="dba" class="validate" required />
+                <input name="company" type="text" id="dba" class="validate"  />
                 <label id="company_label" for="company">Company Name</label>
               </div>
             </div>
@@ -94,23 +97,23 @@
               <div class="input-field col s12">
                 <p>Form of Business</p>
                 <p>
-                  <input id="fob_corp" name="label:Form_Of_Business" class="with-gap" type="radio" value="Corporation" />
+                  <input name="label:Form_Of_Business" id="fob_corp" type="radio" value="" />
                   <label for="fob_corp">Corporation</label>
                 </p>
                 <p>
-                  <input id="fob_partnership" name="label:Form_Of_Business" class="with-gap" type="radio" value="Partnership" />
+                  <input name="label:Form_Of_Business" id="fob_partnership" type="radio" value="" />
                   <label for="fob_partnership">Partnership</label>
                 </p>
                 <p>
-                  <input id="fob_sp" name="label:Form_Of_Business" class="with-gap" type="radio" value="Sole Prop"  />
+                  <input name="label:Form_Of_Business" id="fob_sp" type="radio" value=""  />
                   <label for="fob_sp">Sole Prop</label>
                 </p>
                 <p>
-                  <input id="fob_llc" name="label:Form_Of_Business" class="with-gap" type="radio" value="LLC" />
+                  <input name="label:Form_Of_Business" id="fob_llc" type="radio" value="" />
                   <label for="fob_llc">LLC</label>
                 </p>
                 <p>
-                  <input id="fob_idk" name="label:Form_Of_Business" class="with-gap" type="radio" value="Don't know" />
+                  <input name="label:Form_Of_Business" id="fob_idk" type="radio" value="" />
                   <label for="fob_idk">I don't know</label>
                 </p>
               </div>
@@ -120,7 +123,7 @@
             <div class="row">
               <h5 class="mg_btm_20">General Information</h5>
               <div class="input-field col s12 m6">
-                <input name="website" type="text" class="validate" required />
+                <input name="website" type="text" class="validate"  />
                 <label for="website">Website</label>
               </div>
               <div class="input-field col s12 m6">
@@ -128,7 +131,7 @@
                 <label for="fax">Fax</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="phone" type="text" class="validate" required />
+                <input name="phone" type="text" class="validate"  />
                 <label for="phone">Primary Phone</label>
               </div>
               <div class="input-field col s12 m6">
@@ -137,7 +140,7 @@
               </div>
 
               <div class="input-field col s12 m6">
-                <input name="label:Federal_ID_(EIN)_or_Canadian_GST_#" type="text" class="validate" required />
+                <input name="label:Federal_ID_(EIN)_or_Canadian_GST_#" type="text" class="validate"  />
                 <label for="label:Federal_ID_(EIN)_or_Canadian_GST_#">Federal ID (EIN) or Canadian GST #</label>
               </div>
               <div class="input-field col s12 m6">
@@ -146,20 +149,20 @@
               </div>
 
               <div class="input-field col s12 m6">
-                <input name="annualrevenue" type="text" class="validate" required />
+                <input name="annualrevenue" type="text" class="validate"  />
                 <label for="annualrevenue">Annual Revenue</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="noofemployees" type="text" class="validate" required />
+                <input name="noofemployees" type="text" class="validate"  />
                 <label for="noofemployees">Number of Employees</label>
               </div>
 
               <div class="input-field col s12 m6">
-                <input name="label:Commercial_Percentage" type="text" class="validate" required />
+                <input name="label:Commercial_Percentage" type="text" class="validate"  />
                 <label for="label:Commercial_Percentage">Commercial Percentage</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="label:Residential_Percentage" type="text" class="validate" required />
+                <input name="label:Residential_Percentage" type="text" class="validate"  />
                 <label for="label:Residential_Percentage">Residential Percentage</label>
               </div>
             </div>
@@ -171,29 +174,29 @@
                   type="date"
                   placeholder="When did you start doing business?"
                   class="_todays_date datepicker col s12"
-                  required />
+                   />
             </div>
 
             <div class="row">
               <h5>Billing Address</h5>
               <div class="input-field col s12">
-                <input name="lane" type="text" class="validate" required />
+                <input name="lane" type="text" class="validate"  />
                 <label for="lane">Street</label>
               </div>
               <div class="input-field col s6">
-                <input name="city" type="text" class="validate" required />
+                <input name="city" type="text" class="validate"  />
                 <label for="city">City</label>
               </div>
               <div class="input-field col s6">
-                <input name="state" type="text" class="validate" required />
+                <input name="state" type="text" class="validate"  />
                 <label for="state">State</label>
               </div>
               <div class="input-field col s6">
-                <input name="code" type="text" class="validate" required />
+                <input name="code" type="text" class="validate"  />
                 <label for="code">Zip Code</label>
               </div>
               <div class="input-field col s6">
-                <input name="country" type="text" class="validate" required />
+                <input name="country" type="text" class="validate"  />
                 <label for="country">Country</label>
               </div>
             </div>
@@ -202,23 +205,23 @@
             <div class="row">
               <h5>Shipping Address</h5>
               <div class="input-field col s12">
-                <input name="label:Shipping_Street" type="text" class="validate" required />
+                <input name="label:Shipping_Street" type="text" class="validate"  />
                 <label for="label:Shipping_Street">Street</label>
               </div>
               <div class="input-field col s6">
-                <input name="label:Shipping_City" type="text" class="validate" required />
+                <input name="label:Shipping_City" type="text" class="validate"  />
                 <label for="label:Shipping_City">City</label>
               </div>
               <div class="input-field col s6">
-                <input name="label:Shipping_State" type="text" class="validate" required />
+                <input name="label:Shipping_State" type="text" class="validate"  />
                 <label for="label:Shipping_State">State</label>
               </div>
               <div class="input-field col s6">
-                <input name="label:Shipping_Postal_Code" type="text" class="validate" required />
+                <input name="label:Shipping_Postal_Code" type="text" class="validate"  />
                 <label for="label:Shipping_Postal_Code">Zip Code</label>
               </div>
               <div class="input-field col s6">
-                <input name="label:Shipping_Country" type="text" class="validate" required />
+                <input name="label:Shipping_Country" type="text" class="validate"  />
                 <label for="label:Shipping_Country">Country</label>
               </div>
             </div>
@@ -226,19 +229,19 @@
             <div class="row">
               <h5>Primary Contact Information</h5>
               <div class="input-field col s12 m6">
-                <input name="firstname" type="text" class="validate" required />
+                <input name="firstname" type="text" class="validate"  />
                 <label for="firstname">First Name</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="lastname" type="text" class="validate" required />
+                <input name="lastname" type="text" class="validate"  />
                 <label for="lastname">Last Name</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="designation" type="text" class="validate" required />
+                <input name="designation" type="text" class="validate"  />
                 <label for="designation">Designation / Title</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="label:Office_Phone" type="text" class="validate" required />
+                <input name="label:Office_Phone" type="text" class="validate"  />
                 <label for="label:Office_Phone">Office Phone</label>
               </div>
               <div class="input-field col s12 m6">
@@ -246,7 +249,7 @@
                 <label for="mobile">Mobile Phone</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="email" type="email" class="validate" required />
+                <input name="email" type="email" class="validate"  />
                 <label for="email">Primary Email</label>
               </div>
             </div>
@@ -255,12 +258,12 @@
               <h5 class="mg_btm_20">Authorization</h5>
               <fieldset>
                 <div class="col s12 m6">
-                  <input type="checkbox" name="label:Agree_To_Terms" id="label:Agree_To_Terms" required />
+                  <input type="checkbox" name="label:Agree_To_Terms" id="label:Agree_To_Terms"  />
                   <label for="label:Agree_To_Terms" data-error="please select">I agree with the</label>
                   <a class="modal-trigger waves-effect waves-light blue-text" href="#terms_modal"> Terms of Service</a>
                 </div>
                 <div class="col s12 m6">
-                  <input type="checkbox" name="label:Agree_To_Privacy_Policy" id="label:Agree_To_Privacy_Policy" required />
+                  <input type="checkbox" name="label:Agree_To_Privacy_Policy" id="label:Agree_To_Privacy_Policy"  />
                   <label for="label:Agree_To_Privacy_Policy">I agree with the </label>
                   <a class="modal-trigger waves-effect waves-light blue-text" href="#pp_modal"> Privacy Policy</a>
                 </div>
