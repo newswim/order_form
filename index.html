@@ -2,7 +2,7 @@
 
 <!-- TODO:
 - add a favicon (done)
-- function that requires the reCAPTCHA
+- function that requires the reCAPTCHA (done)
 - comply to Leads schema ...or create custom module (almost done)
 - form should also reflect which fields are mandatory in vTiger module, ie.
   - html element name == 'Webforms reference Field' -->
@@ -299,7 +299,6 @@
                 doSubmit = false;
 
               function reCaptchaVerify(response) {
-                debugger
                 if (response === document.querySelector('.g-recaptcha-response').value) {
                     doSubmit = true;
                 }
@@ -320,11 +319,11 @@
               document.forms['dealer_application'].addEventListener('submit',function(e){
                 if (doSubmit) {
                     // submit the form
-                    console.log('submit verified')
+                    console.log('verification match')
                 } else {
                   e.preventDefault()
                     // don't submit the form
-                  console.log('captcha didn\'t verify')
+                  alert('Please verify the reCAPTCHA above.')
                 }
               })
             </script>
