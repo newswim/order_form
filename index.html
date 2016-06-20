@@ -307,6 +307,7 @@
                 doSubmit = false;
 
               function reCaptchaVerify(response) {
+                debugger
                 if (response === document.querySelector('.g-recaptcha-response').value) {
                     doSubmit = true;
                 }
