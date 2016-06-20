@@ -71,23 +71,23 @@
         	<input type="hidden" name="publicid" value="0931cc86b1eba7d0a81b97068d495b64">
 
             <div class="row">
+              <h5 class="mg_btm_20">About your business</h5>
               <div class="input-field col s12">
-                <input name="label:Legal_Name" id="legal_name" type="text" class="validate">
+                <input name="label:Legal_Name" id="legal_name" type="text" class="validate" />
                 <label for="label:Legal_Name">Legal Business Name</label>
               </div>
-            </div>
-            <div class="row">
-              <div class="col s12">
-                <p>
-                  <input type="checkbox" id="dba_same" />
-                  <label for="dba_same">Same as Legal Business Name?</label>
-                </p>
+              <div class="row">
+                <div class="col s12">
+                  <p>
+                    <input type="checkbox" id="dba_same" />
+                    <label for="dba_same">Duplicate Legal Business Name as Company Name</label>
+                  </p>
+                </div>
               </div>
-            </div>
-            <div class="row">
+
               <div class="input-field col s12">
-                <input name="company" type="text" id="dba" class="validate">
-                <label for="company">Company</label>
+                <input name="company" type="text" id="dba" class="validate" required />
+                <label for="company">Company Name</label>
               </div>
             </div>
             <div class="row">
@@ -115,19 +115,19 @@
                 </p>
               </div>
             </div>
+            <br />
+            <br />
 
             <div class="row">
+              <h5 class="mg_btm_20">General Information</h5>
               <div class="input-field col s12 m6">
-                <input name="website" type="text" class="validate" >
+                <input name="website" type="text" class="validate" required />
                 <label for="website">Website</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="phone" type="text" class="validate" />
+                <input name="phone" type="text" class="validate" required />
                 <label for="phone">Primary Phone</label>
               </div>
-            </div>
-
-            <div class="row">
               <div class="input-field col s12 m6">
                 <input name="label:Secondary_Phone" type="text" class="validate" >
                 <label for="label:Secondary_Phone">Secondary Phone</label>
@@ -140,7 +140,7 @@
 
             <div class="row">
               <div class="input-field col s12">
-                <input name="label:Federal_ID_(EIN)_or_Canadian_GST_#" type="text" class="validate" >
+                <input name="label:Federal_ID_(EIN)_or_Canadian_GST_#" type="text" class="validate" required />
                 <label for="label:Federal_ID_(EIN)_or_Canadian_GST_#">Federal ID (EIN) or Canadian GST #</label>
               </div>
               <div class="input-field col s12">
@@ -151,22 +151,22 @@
 
             <div class="row">
               <div class="input-field col s12 m6">
-                <input name="annualrevenue" type="text" class="validate" >
+                <input name="annualrevenue" type="text" class="validate" required />
                 <label for="annualrevenue">Annual Revenue</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="noofemployees" type="text" class="validate" />
+                <input name="noofemployees" type="text" class="validate" required />
                 <label for="noofemployees">Number of Employees</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12 m6">
-                <input name="label:Commercial_Percentage" type="text" class="validate" >
+                <input name="label:Commercial_Percentage" type="text" class="validate" required />
                 <label for="label:Commercial_Percentage">Commercial Percentage</label>
               </div>
               <div class="input-field col s12 m6">
-                <input name="label:Residential_Percentage" type="text" class="validate" />
+                <input name="label:Residential_Percentage" type="text" class="validate" required />
                 <label for="label:Residential_Percentage">Residential Percentage</label>
               </div>
             </div>
@@ -177,31 +177,30 @@
                   name="label:Open_Date"
                   type="date"
                   placeholder="When did you start doing business?"
-                  class="_todays_date datepicker col s12" />
+                  class="_todays_date datepicker col s12"
+                  required />
             </div>
-
-
 
             <div class="row">
               <h5>Billing Address</h5>
               <div class="input-field col s12">
-                <input name="lane" type="text" class="validate">
+                <input name="lane" type="text" class="validate" required />
                 <label for="lane">Street</label>
               </div>
               <div class="input-field col s6">
-                <input name="city" type="text" class="validate">
+                <input name="city" type="text" class="validate" required />
                 <label for="city">City</label>
               </div>
               <div class="input-field col s6">
-                <input name="state" type="text" class="validate">
+                <input name="state" type="text" class="validate" required />
                 <label for="state">State</label>
               </div>
               <div class="input-field col s6">
-                <input name="code" type="text" class="validate">
+                <input name="code" type="text" class="validate" required />
                 <label for="code">Zip Code</label>
               </div>
               <div class="input-field col s6">
-                <input name="country" type="text" class="validate">
+                <input name="country" type="text" class="validate" required />
                 <label for="country">Country</label>
               </div>
             </div>
@@ -210,43 +209,43 @@
             <div class="row">
               <h5>Shipping Address</h5>
               <div class="input-field col s12">
-                <input name="label:Shipping_Street" type="text" class="validate">
+                <input name="label:Shipping_Street" type="text" class="validate" required />
                 <label for="label:Shipping_Street">Street</label>
               </div>
               <div class="input-field col s6">
-                <input name="label:Shipping_City" type="text" class="validate">
+                <input name="label:Shipping_City" type="text" class="validate" required />
                 <label for="label:Shipping_City">City</label>
               </div>
               <div class="input-field col s6">
-                <input name="label:Shipping_State" type="text" class="validate">
+                <input name="label:Shipping_State" type="text" class="validate" required />
                 <label for="label:Shipping_State">State</label>
               </div>
               <div class="input-field col s6">
-                <input name="label:Shipping_Postal_Code" type="text" class="validate">
+                <input name="label:Shipping_Postal_Code" type="text" class="validate" required />
                 <label for="label:Shipping_Postal_Code">Zip Code</label>
               </div>
               <div class="input-field col s6">
-                <input name="label:Shipping_Country" type="text" class="validate">
+                <input name="label:Shipping_Country" type="text" class="validate" required />
                 <label for="label:Shipping_Country">Country</label>
               </div>
             </div>
 
             <div class="row">
-              <h5>Additional Contact Info</h5>
+              <h5>Primary Contact Information</h5>
               <div class="input-field col s6">
-                <input name="firstname" type="text" class="validate" >
+                <input name="firstname" type="text" class="validate" required />
                 <label for="firstname">First Name</label>
               </div>
               <div class="input-field col s6">
-                <input name="lastname" type="text" class="validate" required>
+                <input name="lastname" type="text" class="validate" required />
                 <label for="lastname">Last Name</label>
               </div>
               <div class="input-field col s12">
-                <input name="designation" type="text" class="validate">
+                <input name="designation" type="text" class="validate" required />
                 <label for="designation">Designation / Title</label>
               </div>
               <div class="input-field col s12">
-                <input name="label:Office_Phone" type="text" class="validate">
+                <input name="label:Office_Phone" type="text" class="validate" required />
                 <label for="label:Office_Phone">Office Phone</label>
               </div>
               <div class="input-field col s12">
@@ -254,7 +253,7 @@
                 <label for="mobile">Mobile Phone</label>
               </div>
               <div class="input-field col s12">
-                <input name="email" type="email" class="validate">
+                <input name="email" type="email" class="validate" required />
                 <label for="email">Primary Email</label>
               </div>
             </div>
@@ -264,27 +263,19 @@
               <fieldset>
                 <div class="col s12 m6">
                   <input type="checkbox" name="label:Agree_To_Terms" id="label:Agree_To_Terms" required />
-                  <label for="label:Agree_To_Terms" data-error="please select">I agree with the Terms of Service</label>
+                  <label for="label:Agree_To_Terms" data-error="please select">I agree with the</label>
+                  <a class="modal-trigger waves-effect waves-light black-text" href="#terms_modal"> Terms of Service</a>
                 </div>
                 <div class="col s12 m6">
                   <input type="checkbox" name="label:Agree_To_Privacy_Policy" id="label:Agree_To_Privacy_Policy" required />
-                  <label for="label:Agree_To_Privacy_Policy">I agree with the Privacy Policy</label>
+                  <label for="label:Agree_To_Privacy_Policy">I agree with the </label>
+                  <a class="modal-trigger waves-effect waves-light black-text" href="#pp_modal"> Privacy Policy</a>
                 </div>
               </fieldset>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input name="label:Title" type="text" class="validate">
-                  <label for="label:Title">Your official title</label>
-                </div>
-              </div>
-              <div class="row">
-                <h5>Today's Date</h5>
-                <input type="date" placeholder="choose a date" class="_todays_date datepicker col s6" >
-              </div>
-            </div>
 
-            <!-- Google reCAPTCHA snippet -->
-            <div id="g-recaptcha" class="mg_btm_40"></div>
+              <!-- Google reCAPTCHA snippet -->
+              <div id="g-recaptcha" class="mg_btm_40"></div>
+            </div>
 
             <script type="text/javascript">
               var RC2KEY = '6LcbqyITAAAAAOS-tjljasR0HPYnlCocBJLYB0IY',
