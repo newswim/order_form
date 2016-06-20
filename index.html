@@ -22,6 +22,14 @@
   <!-- favicon -->
   <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
 
+  <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('g-recaptcha', {
+          'sitekey' : '6LcbqyITAAAAAOS-tjljasR0HPYnlCocBJLYB0IY'
+        });
+      };
+    </script>
+
 </head>
 <body>
   <nav class="grey_md_bg" role="navigation">
@@ -292,7 +300,7 @@
             </div>
 
             <!-- Google reCAPTCHA snippet -->
-            <div class="g-recaptcha mg_btm_40" data-sitekey="6LcbqyITAAAAAOS-tjljasR0HPYnlCocBJLYB0IY"></div>
+            <div id="g-recaptcha" class="mg_btm_40"></div>
 
             <script type="text/javascript">
               var RC2KEY = '6LcbqyITAAAAAOS-tjljasR0HPYnlCocBJLYB0IY',
@@ -502,7 +510,7 @@
   <script src="js/recaptcha_required.js"></script>
 
   <!-- Google Analytics + reCAPTCHA -->
-  <script src='https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit'></script>
+  <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
 
   </body>
 </html>
