@@ -326,8 +326,11 @@
 
               document.forms['dealer_application'].addEventListener('submit',function(e){
                 if (doSubmit) {
+                    // submit the form
                     console.log('submit verified')
                 } else {
+                  e.preventDefault()
+                    // don't submit the form
                   console.log('captcha didn\'t verify')
                 }
               })
