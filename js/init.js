@@ -15,8 +15,12 @@
       $("#dba_same").change(function() {
         if ($('#dba_same').prop('checked')) {
             var existing = $('#legal_name').val()
-            return $('#dba').val(existing)
+            $('#dba').val(existing)
         }
+        if ($('#dba').val() == "") {
+          $('#company_label').removeClass('active')
+        }
+        $('#company_label').addClass('active')
       });
     });
   }); // end of document ready
