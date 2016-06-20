@@ -294,6 +294,37 @@
             <!-- Google reCAPTCHA snippet -->
             <div class="g-recaptcha mg_btm_40" data-sitekey="6LcbqyITAAAAAOS-tjljasR0HPYnlCocBJLYB0IY"></div>
 
+            <script type="text/javascript">
+              var RC2KEY = '6LcbqyITAAAAAOS-tjljasR0HPYnlCocBJLYB0IY',
+                doSubmit = false;
+
+              function reCaptchaVerify(response) {
+                if (response === document.querySelector('.g-recaptcha-response').value) {
+                    doSubmit = true;
+                }
+              }
+
+              function reCaptchaExpired () {
+                alert('Captcha session has expired')
+              }
+
+              function reCaptchaCallback () {
+                grecaptcha.render('id', {
+                    'sitekey': RC2KEY,
+                    'callback': reCaptchaVerify,
+                    'expired-callback': reCaptchaExpired
+                });
+              }
+
+              document.forms['dealer_application'].addEventListener('submit',function(e){
+                if (doSubmit) {
+                    console.log('submit verified')
+                } else {
+                  console.log('captcha didn\'t verify')
+                }
+              })
+            </script>
+
             <!-- submit the form -->
             <input class="btn waves-effect waves-light" type="submit" value="Submit" >
 
@@ -312,7 +343,6 @@
         </div>
         <div class="col l3 s12">
           <ul>
-            <!-- <li><a class="white-text _fw_300" href="http://www.savicontrols.com/#privacy-modal">Privacy Policy</a></li> -->
             <li><a class="modal-trigger waves-effect waves-light white-text _fw_300" href="#pp_modal">Privacy Policy</a></li>
             <li><a class="modal-trigger waves-effect waves-light white-text _fw_300" href="#terms_modal">Terms of Service</a></li>
           </ul>
@@ -472,7 +502,7 @@
   <script src="js/recaptcha_required.js"></script>
 
   <!-- Google Analytics + reCAPTCHA -->
-  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <script src='https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit'></script>
 
   </body>
 </html>
