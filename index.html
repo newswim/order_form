@@ -19,10 +19,6 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-  <!-- Google Analytics + reCAPTCHA -->
-
-  <script src='https://www.google.com/recaptcha/api.js'></script>
-
   <!-- favicon -->
   <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
 
@@ -77,6 +73,14 @@
               <div class="input-field col s12">
                 <input name="label:Legal_Name" type="text" class="validate">
                 <label for="label:Legal_Name">Legal Business Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <p>
+                  <input type="checkbox" id="dba_same" />
+                  <label for="dba_same">Same as LBN</label>
+                </p>
               </div>
             </div>
             <div class="row">
@@ -227,7 +231,7 @@
 
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
               <h5>Company Officers</h5>
               <div class="input-field col s6">
                 <input name="label:President_Name" type="text" class="validate">
@@ -261,7 +265,7 @@
                 <input name="label:AP_Manager_Email" type="email" class="validate">
                 <label for="label:AP_Manager_Email">Email</label>
               </div>
-            </div>
+            </div> -->
 
             <div class="row">
               <h5 class="mg_btm_20">Authorization</h5>
@@ -466,6 +470,9 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/recaptcha_required.js"></script>
+
+  <!-- Google Analytics + reCAPTCHA -->
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 
   </body>
 </html>
