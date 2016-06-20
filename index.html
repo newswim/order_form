@@ -124,6 +124,10 @@
                 <label for="website">Website</label>
               </div>
               <div class="input-field col s12 m6">
+                <input name="fax" type="text" class="validate" />
+                <label for="fax">Fax</label>
+              </div>
+              <div class="input-field col s12 m6">
                 <input name="phone" type="text" class="validate" required />
                 <label for="phone">Primary Phone</label>
               </div>
@@ -131,24 +135,16 @@
                 <input name="label:Secondary_Phone" type="text" class="validate" >
                 <label for="label:Secondary_Phone">Secondary Phone</label>
               </div>
-              <div class="input-field col s12 m6">
-                <input name="fax" type="text" class="validate" />
-                <label for="fax">Fax</label>
-              </div>
-            </div>
 
-            <div class="row">
-              <div class="input-field col s12">
+              <div class="input-field col s12 m6">
                 <input name="label:Federal_ID_(EIN)_or_Canadian_GST_#" type="text" class="validate" required />
                 <label for="label:Federal_ID_(EIN)_or_Canadian_GST_#">Federal ID (EIN) or Canadian GST #</label>
               </div>
-              <div class="input-field col s12">
+              <div class="input-field col s12 m6">
                 <input name="label:Resale_Tax_Certificate" type="text" class="validate" />
                 <label for="label:Resale_Tax_Certificate">Resale Tax Certificate</label>
               </div>
-            </div>
 
-            <div class="row">
               <div class="input-field col s12 m6">
                 <input name="annualrevenue" type="text" class="validate" required />
                 <label for="annualrevenue">Annual Revenue</label>
@@ -157,9 +153,7 @@
                 <input name="noofemployees" type="text" class="validate" required />
                 <label for="noofemployees">Number of Employees</label>
               </div>
-            </div>
 
-            <div class="row">
               <div class="input-field col s12 m6">
                 <input name="label:Commercial_Percentage" type="text" class="validate" required />
                 <label for="label:Commercial_Percentage">Commercial Percentage</label>
@@ -231,27 +225,27 @@
 
             <div class="row">
               <h5>Primary Contact Information</h5>
-              <div class="input-field col s6">
+              <div class="input-field col s12 m6">
                 <input name="firstname" type="text" class="validate" required />
                 <label for="firstname">First Name</label>
               </div>
-              <div class="input-field col s6">
+              <div class="input-field col s12 m6">
                 <input name="lastname" type="text" class="validate" required />
                 <label for="lastname">Last Name</label>
               </div>
-              <div class="input-field col s12">
+              <div class="input-field col s12 m6">
                 <input name="designation" type="text" class="validate" required />
                 <label for="designation">Designation / Title</label>
               </div>
-              <div class="input-field col s12">
+              <div class="input-field col s12 m6">
                 <input name="label:Office_Phone" type="text" class="validate" required />
                 <label for="label:Office_Phone">Office Phone</label>
               </div>
-              <div class="input-field col s12">
+              <div class="input-field col s12 m6">
                 <input name="mobile" type="text" class="validate">
                 <label for="mobile">Mobile Phone</label>
               </div>
-              <div class="input-field col s12">
+              <div class="input-field col s12 m6">
                 <input name="email" type="email" class="validate" required />
                 <label for="email">Primary Email</label>
               </div>
@@ -263,15 +257,15 @@
                 <div class="col s12 m6">
                   <input type="checkbox" name="label:Agree_To_Terms" id="label:Agree_To_Terms" required />
                   <label for="label:Agree_To_Terms" data-error="please select">I agree with the</label>
-                  <a class="modal-trigger waves-effect waves-light black-text" href="#terms_modal"> Terms of Service</a>
+                  <a class="modal-trigger waves-effect waves-light blue-text" href="#terms_modal"> Terms of Service</a>
                 </div>
                 <div class="col s12 m6">
                   <input type="checkbox" name="label:Agree_To_Privacy_Policy" id="label:Agree_To_Privacy_Policy" required />
                   <label for="label:Agree_To_Privacy_Policy">I agree with the </label>
-                  <a class="modal-trigger waves-effect waves-light black-text" href="#pp_modal"> Privacy Policy</a>
+                  <a class="modal-trigger waves-effect waves-light blue-text" href="#pp_modal"> Privacy Policy</a>
                 </div>
               </fieldset>
-
+              <br />
               <!-- Google reCAPTCHA snippet -->
               <div id="g-recaptcha" class="mg_btm_40"></div>
             </div>
