@@ -40,6 +40,10 @@ label {
   font-weight: 300;
 }
 
+._ftsz_md {
+  font-size: 1em;
+}
+
 .savi_logo {
   max-width: 138px;
   margin-top: 5px;

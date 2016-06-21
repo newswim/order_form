@@ -147,14 +147,26 @@
               <label for="noofemployees">Number of Employees</label>
             </div>
 
-            <div class="input-field col s12 m6">
+            <!-- <div class="input-field col s12 m6">
               <input name="label:Commercial_Percentage" type="text" class="validate" required />
               <label for="label:Commercial_Percentage">Commercial Percentage</label>
             </div>
+
             <div class="input-field col s12 m6">
               <input name="label:Residential_Percentage" type="text" class="validate" required />
               <label for="label:Residential_Percentage">Residential Percentage</label>
-            </div>
+            </div> -->
+
+            <p class="range-field col s12 m6">
+              <label for="label:Commercial_Percentage" class="_fw_300 _ftsz_md">Commercial Percentage</label>
+              <input type="range" id="label:Commercial_Percentage" name="label:Commercial_Percentage" min="0" max="100" />
+            </p>
+
+            <p class="range-field col s12 m6">
+              <label for="label:Residential_Percentage" class="_fw_300 _ftsz_md">Residential Percentage</label>
+              <input type="range" id="label:Residential_Percentage" name="label:Residential_Percentage" min="0" max="100" />
+            </p>
+
           </div>
 
           <div class="row">
