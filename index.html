@@ -195,49 +195,54 @@
           <div class="row">
             <h5>Billing Address</h5>
             <div class="input-field col s12">
-              <input name="lane" type="text" class="validate" required />
+              <input name="lane" id="lane" type="text" class="validate" required />
               <label for="lane">Street</label>
             </div>
             <div class="input-field col s6">
-              <input name="city" type="text" class="validate" required />
+              <input name="city" id="city" type="text" class="validate" required />
               <label for="city">City</label>
             </div>
             <div class="input-field col s6">
-              <input name="state" type="text" class="validate" required />
+              <input name="state" id="state" type="text" class="validate" required />
               <label for="state">State</label>
             </div>
             <div class="input-field col s6">
-              <input name="code" type="text" class="validate" required />
+              <input name="code" id="code" type="text" class="validate" required />
               <label for="code">Zip Code</label>
             </div>
             <div class="input-field col s6">
-              <input name="country" type="text" class="validate" required />
+              <input name="country" id="country" type="text" class="validate" required />
               <label for="country">Country</label>
             </div>
           </div>
 
-
           <div class="row">
             <h5>Shipping Address</h5>
+            <div class="col s12">
+                <p>
+                  <input type="checkbox" id="same_address" />
+                  <label for="same_address">Same as billing address.</label>
+                </p>
+            </div>
             <div class="input-field col s12">
-              <input name="label:Shipping_Street" type="text" class="validate" required />
-              <label for="label:Shipping_Street">Street</label>
+              <input name="label:Shipping_Street" id="_street" type="text" class="validate" required />
+              <label for="label:Shipping_Street" id="_street_label">Street</label>
             </div>
             <div class="input-field col s6">
-              <input name="label:Shipping_City" type="text" class="validate" required />
-              <label for="label:Shipping_City">City</label>
+              <input name="label:Shipping_City" id="_city" type="text" class="validate" required />
+              <label for="label:Shipping_City" id="_city_label">City</label>
             </div>
             <div class="input-field col s6">
-              <input name="label:Shipping_State" type="text" class="validate" required />
-              <label for="label:Shipping_State">State</label>
+              <input name="label:Shipping_State" id="_state" type="text" class="validate" required />
+              <label for="label:Shipping_State" id="_state_label">State</label>
             </div>
             <div class="input-field col s6">
-              <input name="label:Shipping_Postal_Code" type="text" class="validate" required />
-              <label for="label:Shipping_Postal_Code">Zip Code</label>
+              <input name="label:Shipping_Postal_Code" id="_postal" type="text" class="validate" required />
+              <label for="label:Shipping_Postal_Code" id="_postal_label">Zip Code</label>
             </div>
             <div class="input-field col s6">
-              <input name="label:Shipping_Country" type="text" class="validate" required />
-              <label for="label:Shipping_Country">Country</label>
+              <input name="label:Shipping_Country" id="_country" type="text" class="validate" required />
+              <label for="label:Shipping_Country" id="_country_label">Country</label>
             </div>
           </div>
 
