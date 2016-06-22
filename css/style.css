@@ -36,12 +36,28 @@ label {
   margin-bottom: 20px;
 }
 
+.mg_btm_6 {
+  margin-bottom: 6px;
+}
+
 ._fw_300 {
   font-weight: 300;
 }
 
 ._ftsz_md {
   font-size: 1em;
+}
+
+._ftsz_sm {
+  font-size: .6em;
+}
+
+._txt_rt {
+  text-align: right;
+}
+
+._txt_cn {
+  text-align: center;
 }
 
 .savi_logo {
