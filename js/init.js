@@ -10,6 +10,7 @@
 
     $(document).ready(function() {
       $('#dba_select').material_select();
+      $('#rev_range').material_select();
     });
 
     $(document).ready(function(){
