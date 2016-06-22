@@ -13,15 +13,61 @@
 	font-size: inherit;
 }
 
+label {
+  color: #6d6969 !important
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  margin-top: 14px !important;
+}
+
 .footer-copyright {
-  background-color: rgba(10, 10, 10, .8) !important
+  background-color: #171717 !important
+}
+
+/* Dealer App styling */
+
+.mg_btm_40 {
+  margin-bottom: 40px;
+}
+
+.mg_btm_20 {
+  margin-bottom: 20px;
+}
+
+._fw_300 {
+  font-weight: 300;
+}
+
+._ftsz_md {
+  font-size: 1em;
 }
 
 .savi_logo {
   max-width: 138px;
   margin-top: 5px;
+  height: 56px;
 }
 
+@media (max-width: 601px) {
+  .savi_logo {
+    height: 46px;
+  }
+}
+
+.captcha_gif {
+  width: 25%;
+}
+
+.form_outline {
+  background-color: rgba(20,0,0,.04);
+  padding: 20px;
+}
+
+a.modal-trigger.waves-effect.waves-light.blue-text {
+    margin-bottom: 2px;
+}
 
 /* SAVI COLORS */
 
@@ -30,5 +76,9 @@
 }
 
 .teal_md_cl {
-  color: RGBA(67, 87, 93, 1.00)
+  color: #0e675d;
+}
+
+.dark_md_cl {
+  color: #444;
 }

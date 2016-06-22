@@ -1,14 +1,30 @@
 <!DOCTYPE html>
+
+<!-- TODO:
+- add a favicon (done)
+- function that requires the reCAPTCHA (done)
+- copy 'Legal Name' field into 'Company' field (semi-finished)
+- comply to Leads schema ...or create custom module (done)
+- seems like 'Form of Business' field isn't getting added
+  - turns out, Vtiger doesn't support radio buttons
+- form should also reflect which fields are mandatory in vTiger module, ie.
+  - html element name == 'Webforms reference Field' -->
+
+
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <title>Become a SAVI Dealer</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!-- favicon -->
+  <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+
 </head>
 <body>
   <nav class="grey_md_bg" role="navigation">
@@ -17,11 +33,13 @@
         <img class="savi_logo" src="img/logo-savi.svg" />
       </a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a class="modal-trigger" href="#terms_modal">Terms of Service</a></li>
+        <li><a class="modal-trigger" href="#pp_modal">Privacy Policy</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a class="modal-trigger" href="#terms_modal">Terms of Service</a></li>
+        <li><a class="modal-trigger" href="#pp_modal">Privacy Policy</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -29,214 +47,281 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center teal_md_cl">Dealer Application</h1>
+      <h1 class="header center dark_md_cl">Dealer Application</h1>
       <div class="row center">
         <h5 class="header col s12 light">Thanks for your interest! Once you've submitted this form, a sales representative will contact you.</h5>
       </div>
-      <div class="row center">
+      <!-- <div class="row center">
         <a href="http://savicontrols.com" id="download-button" class="btn-large waves-effect waves-light">Go back</a>
-      </div>
+      </div> -->
       <br><br>
 
     </div>
   </div>
 
-
   <div class="container">
+      <small>* All fields required unless otherwise indicated</small>
     <div class="section">
+      <div class="row form_outline">
+          <form
+              class="col s12"
+              id="dealer_application"
+              action="http://71.164.232.228/savicontrols/modules/Webforms/capture.php"
+              method="post"
+              accept-charset="utf-8"
+              enctype="multipart/form-data">
+          <input type="hidden" name="__vtrftk" value="sid:8348f3864b45a55d1f1fec8093dab04ddfdf6e6c,1466018587">
+        	<input type="hidden" name="publicid" value="0931cc86b1eba7d0a81b97068d495b64">
 
-<!-- some of the fields.. -->
-      <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="legal_business_name" type="text" class="validate">
-                <label for="legal_business_name">Legal Business Name</label>
-              </div>
+          <div class="row">
+            <h5 class="mg_btm_20">About your business</h5>
+            <div class="input-field col s12">
+              <input name="label:Legal_Name" id="legal_name" type="text" class="validate" />
+              <label for="label:Legal_Name">Legal Business Name</label>
             </div>
-
             <div class="row">
-              <div class="input-field col s12">
-                <input id="dba" type="text" class="validate">
-                <label for="dba">DBA</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="input-field col s6">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="website" type="text" class="validate">
-                <label for="website">Website</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <h5>Billing Address</h5>
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">City</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="state" type="text" class="validate">
-                <label for="state">State</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="zipcode" type="text" class="validate">
-                <label for="zipcode">Zip Code</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="country" type="text" class="validate">
-                <label for="country">Country</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="telephone" type="text" class="validate">
-                <label for="telephone">Telephone</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="fax" type="text" class="validate">
-                <label for="fax">Fax</label>
-              </div>
-            </div>
-
-
-            <div class="row">
-              <h5>Shipping Address</h5>
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">City</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="state" type="text" class="validate">
-                <label for="state">State</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="zipcode" type="text" class="validate">
-                <label for="zipcode">Zip Code</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="country" type="text" class="validate">
-                <label for="country">Country</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="telephone" type="text" class="validate">
-                <label for="telephone">Telephone</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="fax" type="text" class="validate">
-                <label for="fax">Fax</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <h5>Additional Info</h5>
-              <div class="input-field col s12">
-                <input id="city" type="text" class="validate">
-                <label for="city">Year Established</label>
-              </div>
-              <div class="input-field col s6">
-                <p>Form of Business</p>
+              <div class="col s12">
                 <p>
-                  <input name="form_of_business" class="with-gap" type="radio" id="corporation" />
-                  <label for="corporation">Corporation</label>
-                </p>
-                <p>
-                  <input name="form_of_business" class="with-gap" type="radio" id="partnership" />
-                  <label for="partnership">Partnership</label>
-                </p>
-                <p>
-                  <input name="form_of_business" class="with-gap" type="radio" id="sole_prop"  />
-                  <label for="sole_prop">Sole Prop</label>
-                </p>
-                <p>
-                  <input name="form_of_business" class="with-gap" type="radio" id="llc" />
-                  <label for="llc">LLC</label>
+                  <input type="checkbox" id="dba_same" />
+                  <label for="dba_same">Duplicate Legal Business Name as Company Name</label>
                 </p>
               </div>
             </div>
 
-            <!-- TODO: fill in label and ids -->
-            <div class="row">
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">Federal ID#</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">GST/EIN#</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="city" type="text" class="validate">
-                <label for="city">Resale Certificate</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">Average Monthly Purchases</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">Annual Sales</label>
-              </div>
+            <div class="input-field col s12">
+              <input name="company" type="text" id="dba" class="validate" required />
+              <label id="company_label" for="company">Company Name</label>
+            </div>
+          </div>
+          <div class="row">
 
+            <div class="input-field col s12">
+              <select name="label:Form_Of_Business" id="dba_select">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="Corporation">Corporation</option>
+                <option value="Partnership">Partnership</option>
+                <option value="Sole Prop">Sole Prop</option>
+                <option value="LLC">LLC</option>
+                <option value="I don't know">I don't know</option>
+              </select>
+              <label>Form of Business</label>
             </div>
 
-            <div class="row">
-              <h5>Company Officers</h5>
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">President</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="email" class="validate">
-                <label for="city">Email</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">Sales Manager</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="email" class="validate">
-                <label for="city">Email</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">Buyer</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="email" class="validate">
-                <label for="city">Email</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="text" class="validate">
-                <label for="city">AP Manager</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="city" type="email" class="validate">
-                <label for="city">Email</label>
-              </div>
+          </div>
+          <br />
 
+          <div class="row">
+            <h5 class="mg_btm_20">General Information</h5>
+            <div class="input-field col s12 m6">
+              <input name="website" type="text" class="validate" required />
+              <label for="website">Website</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="fax" type="text" class="validate" />
+              <label for="fax">Fax <small>(optional)</small></label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="phone" type="text" class="validate" required />
+              <label for="phone">Primary Phone</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="label:Secondary_Phone" type="text" class="validate" >
+              <label for="label:Secondary_Phone">Secondary Phone <small>(optional)</small></label>
             </div>
 
-            <div class="row">
-              <h5>Authorization</h5>
-              <h4>Signature</h4>
-              <h4>Title</h4>
-              <h4>Date</h4>
-
+            <div class="input-field col s12 m6">
+              <input name="label:Federal_ID_(EIN)_or_Canadian_GST_#" type="text" class="validate" required />
+              <label for="label:Federal_ID_(EIN)_or_Canadian_GST_#">Federal ID (EIN) or Canadian GST #</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="label:Resale_Tax_Certificate" type="text" class="validate" />
+              <label for="label:Resale_Tax_Certificate">Resale Tax Certificate <small>(optional)</small></label>
             </div>
 
+            <div class="input-field col s12 m6">
+              <input name="annualrevenue" type="text" class="validate" required />
+              <label for="annualrevenue">Annual Revenue <small>(optional)</small></label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="noofemployees" type="text" class="validate" required />
+              <label for="noofemployees">Number of Employees</label>
+            </div>
 
-          </form>
-        </div>
+            <!-- <div class="input-field col s12 m6">
+              <input name="label:Commercial_Percentage" type="text" class="validate" required />
+              <label for="label:Commercial_Percentage">Commercial Percentage</label>
+            </div>
 
+            <div class="input-field col s12 m6">
+              <input name="label:Residential_Percentage" type="text" class="validate" required />
+              <label for="label:Residential_Percentage">Residential Percentage</label>
+            </div> -->
+
+            <p class="range-field col s12 m6">
+              <label for="label:Commercial_Percentage" class="_fw_300 _ftsz_md">Commercial Percentage</label>
+              <input type="range" id="label:Commercial_Percentage" name="label:Commercial_Percentage" min="0" max="100" />
+            </p>
+
+            <p class="range-field col s12 m6">
+              <label for="label:Residential_Percentage" class="_fw_300 _ftsz_md">Residential Percentage</label>
+              <input type="range" id="label:Residential_Percentage" name="label:Residential_Percentage" min="0" max="100" />
+            </p>
+
+          </div>
+
+          <div class="row">
+            <h5>Date Established</h5>
+            <input
+                name="label:Open_Date"
+                type="date"
+                placeholder="When did you start doing business?"
+                class="_todays_date datepicker col s12"
+                required />
+          </div>
+
+          <div class="row">
+            <h5>Billing Address</h5>
+            <div class="input-field col s12">
+              <input name="lane" type="text" class="validate" required />
+              <label for="lane">Street</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="city" type="text" class="validate" required />
+              <label for="city">City</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="state" type="text" class="validate" required />
+              <label for="state">State</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="code" type="text" class="validate" required />
+              <label for="code">Zip Code</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="country" type="text" class="validate" required />
+              <label for="country">Country</label>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <h5>Shipping Address</h5>
+            <div class="input-field col s12">
+              <input name="label:Shipping_Street" type="text" class="validate" required />
+              <label for="label:Shipping_Street">Street</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="label:Shipping_City" type="text" class="validate" required />
+              <label for="label:Shipping_City">City</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="label:Shipping_State" type="text" class="validate" required />
+              <label for="label:Shipping_State">State</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="label:Shipping_Postal_Code" type="text" class="validate" required />
+              <label for="label:Shipping_Postal_Code">Zip Code</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="label:Shipping_Country" type="text" class="validate" required />
+              <label for="label:Shipping_Country">Country</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <h5>Primary Contact Information</h5>
+            <div class="input-field col s12 m6">
+              <input name="firstname" type="text" class="validate" required />
+              <label for="firstname">First Name</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="lastname" type="text" class="validate" required />
+              <label for="lastname">Last Name</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="designation" type="text" class="validate" required />
+              <label for="designation">Designation / Title</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="label:Office_Phone" type="text" class="validate" required />
+              <label for="label:Office_Phone">Office Phone</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="mobile" type="text" class="validate">
+              <label for="mobile">Mobile Phone <small>(optional)</small></label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input name="email" type="email" class="validate" required />
+              <label for="email">Primary Email</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <h5 class="mg_btm_20">Authorization</h5>
+            <fieldset>
+              <div class="col s12 m6">
+                <input type="checkbox" name="label:Dealer_Agreement" id="label:Dealer_Agreement" required />
+                <label for="label:Dealer_Agreement" data-error="please select">I hereby ackowledge the</label>
+                <a class="modal-trigger waves-effect waves-light blue-text" href="#agreement_modal"> Dealer Agreement Form</a>
+              </div>
+              <div class="col s12 m6">
+                <input type="checkbox" name="label:Agree_To_Terms" id="label:Agree_To_Terms" required />
+                <label for="label:Agree_To_Terms" data-error="please select">I agree with the</label>
+                <a class="modal-trigger waves-effect waves-light blue-text" href="#terms_modal"> Terms of Service</a>
+              </div>
+              <div class="col s12 m6">
+                <input type="checkbox" name="label:Agree_To_Privacy_Policy" id="label:Agree_To_Privacy_Policy" required />
+                <label for="label:Agree_To_Privacy_Policy">I agree with the </label>
+                <a class="modal-trigger waves-effect waves-light blue-text" href="#pp_modal"> Privacy Policy</a>
+              </div>
+            </fieldset>
+            <br />
+            <!-- Google reCAPTCHA snippet -->
+            <div id="g-recaptcha" class="mg_btm_40"></div>
+          </div>
+
+          <script type="text/javascript">
+            var RC2KEY = '6LcbqyITAAAAAOS-tjljasR0HPYnlCocBJLYB0IY',
+              doSubmit = false;
+
+            function reCaptchaVerify(response) {
+              if (response === document.querySelector('.g-recaptcha-response').value) {
+                  doSubmit = true;
+              }
+            }
+
+            function reCaptchaExpired () {
+              alert('Captcha session has expired')
+            }
+
+            function reCaptchaCallback () {
+              grecaptcha.render('g-recaptcha', {
+                  'sitekey': RC2KEY,
+                  'callback': reCaptchaVerify,
+                  'expired-callback': reCaptchaExpired
+              });
+            }
+
+            document.forms['dealer_application'].addEventListener('submit',function(e){
+              if (doSubmit) {
+                  // submit the form
+                  console.log('verification match')
+              } else {
+                e.preventDefault()
+                  // don't submit the form
+                alert('Please verify the reCAPTCHA above.')
+              }
+            })
+          </script>
+
+          <!-- submit the form -->
+          <input class="btn waves-effect waves-light" type="submit" value="Submit" >
+
+        </form>
+      </div>
     </div>
-    <br><br>
-
-    <div class="section">
-
-    </div>
+    <br />
+    <br />
   </div>
 
   <footer class="page-footer grey_md_bg">
@@ -244,35 +329,1661 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">SAVI Controls</h5>
-          <p class="grey-text text-lighten-4">Allowing companies to bring their a/v automation into commercial spaces.</p>
+          <blockquote class="grey-text text-lighten-4 _fw_300">"Some nice quote about the company."</blockquote>
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="white-text" href="#!">Privacy Policy</a></li>
-            <li><a class="white-text" href="#!">Terms of Service</a></li>
+            <li><a class="modal-trigger waves-effect waves-light white-text _fw_300" href="#pp_modal">Privacy Policy</a></li>
+            <li><a class="modal-trigger waves-effect waves-light white-text _fw_300" href="#terms_modal">Terms of Service</a></li>
           </ul>
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Social</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Snapchat</a></li>
+          <ul class="_fw_300">
+            <li><a class="white-text" href="#!">LinkedIn</a></li>
+            <li><a class="white-text" href="#!">Facebook</a></li>
+            <li><a class="white-text" href="#!">Instagram</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Copyright 2016 SAVI Controls, LLC.
+        Copyright 2016 SAVI Controls, LLC.
       </div>
     </div>
   </footer>
 
+  <!-- PRIVACY POLICY -->
+
+  <div id="pp_modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h2>
+        Privacy Policy
+      </h2>
+      <h4>
+        1. YOUR PRIVACY MATTERS
+      </h4>
+      <p>
+        SAVI Controls, LLC (“SAVI Controls”, “we”, or “us”) understands that you care
+        about how information about you is collected and used. We respect your
+        privacy and we are committed to protecting the personal information that you
+        share with us. This Privacy Policy describes the privacy practices of SAVI
+        Controls with respect to our products, services and websites (including
+        www.savicontrols.com&nbsp;or other websites, online services, or applications
+        operated or controlled by SAVI Controls, collectively the "Sites"). We
+        outline the types of information SAVI Controls collects, how we collect it,
+        how we use it, and the options you have to restrict the collection and use of
+        your personally identifiable information.
+      </p>
+      <p>
+        By using SAVI Controls’ products, services or Sites you signify your
+        acceptance of SAVI Controls’ collection and use of your personal information
+        in the manner and for the purposes described herein. If you do not agree to
+        some aspect of SAVI Controls’ intended use of your information, you may use
+        one or more of the methods described in this Privacy Policy to opt out of the
+        specific type of collection or use of information. If you feel that these
+        methods are insufficient to alleviate your concerns, please do not use our
+        products, services, or Sites or otherwise provide SAVI Controls with your
+        personal information.
+      </p>
+      <h4>
+        2. COLLECTION OF INFORMATION
+      </h4>
+      <p>
+        SAVI Controls may collect information about you any time you are in contact
+        with SAVI Controls, its products, services or Sites. SAVI Controls may share
+        this personal information with our subsidiaries and affiliates (and vice
+        versa) but only for purposes consistent with this Privacy Policy.
+      </p>
+      <h5>
+        A. Information You Provide
+      </h5>
+      <p>
+        We may ask you to provide personal information when you visit our Sites, use
+        our products, register for a program or service, subscribe to a newsletter,
+        respond to a survey, fill out a form, or in connection with other activities,
+        services, features or resources we make available to you from time to time.
+        We may ask you for: your name, title or position, email address, mailing
+        address, phone number, financial information, and other personal information
+        as appropriate. Additionally, we may request information about the SAVI
+        Controls products you use, or third-party products connected to your SAVI
+        Controls system, such as model or serial numbers. In the case of a technical
+        issue, we may also collect information relating to a support or service
+        incident. Please note that we do not intentionally collect any sensitive
+        personal information relating to confidential medical facts, racial or ethnic
+        origins, political or religious beliefs or sexuality; please do provide any
+        of this type of information to us.
+      </p>
+      <h5>
+        B. Information Collected Automatically
+      </h5>
+      <p>
+        To measure and improve the performance of our Sites, we may collect
+        information during your visit to the Sites through our automatic data
+        collection tools, which may include Web beacons, cookies, embedded Web links,
+        pixel tags and other commonly used information-gathering tools. These tools
+        help us track how users are interacting with our Sites, and help us make your
+        visit to our Sites easier and more efficient by providing you with a
+        customized experience and recognizing you when you return. SAVI Controls
+        maintains its own pages on many social networking sites, and we may also
+        collect information from you when you interact with our social networking
+        pages.
+      </p>
+      <h5>
+        C. Use of Cookies and Other Web Tracking Technologies
+      </h5>
+      <p>
+        A "cookie" is a small piece of data stored on a user's device. When you visit
+        the Sites, SAVI Controls may place a "cookie" on your device which allows us
+        to compile information about Sites usage and to recognize you when you visit
+        the Sites again. In addition, we use pixel tags "tiny graphic images " to
+        tell us what parts of our Sites our users have visited or to measure the
+        effectiveness of searches performed on our Sites. This information can be
+        used to enhance the content of the Sites and make your experience more
+        informative. Pixel tags also enable us to send email messages in a format
+        that users can read and tell us whether emails have been opened to help
+        assure that we're only sending messages that are of interest to our users. If
+        you subsequently provide us with your personal information, such as your
+        email address, we will associate our cookies and tags with that information
+        and you will no longer be an anonymous visitor to the Sites.
+      </p>
+      <p>
+        In some of our email messages we use a "click-through URL" linked to content
+        on the Sites. When a user clicks one of these URLs, they pass through our web
+        server before arriving at the destination web page. We track this
+        click-through data to help us determine interest in particular topics and
+        measure the effectiveness of our communications. If you prefer not to be
+        tracked this way, simply avoid clicking text or graphic links in our email
+        messages.
+      </p>
+      <p>
+        Like many other companies, we use third party partners to analyze data
+        collected about your browsing behavior when you visit our Sties. Our Sites
+        may include technology from Flurry Analytics, Google Analytics, Quantcast,
+        Elaqua, Hubspot and other similar technologies. These tools provide us with
+        analytical information, reports and analysis about the use of our Sites, and
+        may record the internet protocol (IP) address used to connect your device to
+        the Internet, the type of device and operating system you are using, your
+        general geographic information, as well as events that occur within our Site,
+        such as the page that led you to our Sites, how often you visit pages within
+        our Sites and other data related to the use of our Sites. We may also use
+        these tools to help serve content that is relevant to you. For more
+        information about these services and the related privacy policies and options
+        available to you, please visit the websites of our analytics service
+        providers listed above. If you wish to avoid SAVI Controls’ use of these
+        analytics services on our Sites, you may use any opt-out mechanisms provided
+        by our analytics providers and/or actively manage the settings on your
+        browser or mobile device to delete and disable cookies and other
+        tracking/recording tools.
+      </p>
+      <h5>
+        D. Do Not Track Features
+      </h5>
+      <p>
+        Some web browsers may let you enable a "do not track" feature that sends
+        signals to the websites you visit, indicating that you do not want your
+        online activities tracked. This is different than blocking or deleting
+        cookies, as browsers with a "do not track" feature enabled may still accept
+        cookies. There is currently no industry standard for how companies should
+        respond to "do not track" signals, although one may develop in the future. We
+        do not respond to "do not track" signals at this time. If we do so in the
+        future, we will update our Privacy Policy and describe to describe our
+        response. More information about "do not track" is available at
+        www.allaboutdnt.org. The only way to completely opt out of the collection of
+        any information through cookies or other tracking technology is to actively
+        manage the settings on your browser or mobile device to delete and disable
+        cookies and other tracking/recording tools.
+      </p>
+      <p>
+        Information Collected through our Products, which we receive information that
+        you or your installer inputs into your configuration project file which may
+        include: the model and serial numbers of the SAVI Controls products
+        installed; the version and type of any software installed; the type of
+        third-party devices you integrate,; the names of the rooms where you have
+        connected devices; your zip code or time zone; and other information about
+        your configuration. Some of our products also allow us to automatically
+        receive data related to the functionality and use of the system, such as the
+        time, frequency and type of use of the various components your system, a
+        history of your device settings including any adjustments you make, data from
+        any sensors built into the SAVI Controls system or the products you integrate
+        into the system, the type of media player and media you are using, etc. This
+        project--specific data may be stored along with any account information you
+        provide when you set up an account with SAVI Controls including your email
+        and other contact information. We use this information to help us customize
+        our communications to you, troubleshoot problems with your system or account,
+        and to improve the functionality of our products and help make your life more
+        comfortable and secure.
+      </p>
+      <h5>
+        E. WHY WE COLLECT INFORMATION
+      </h5>
+      <p>
+        SAVI Controls may collect and use your information for the following
+        purposes:
+      </p>
+      <ol>
+        <li>To improve customer service and respond to requests. Information you
+        provide helps us respond to your service requests and support needs more
+        efficiently, and enables us to contact you in response to your requests for
+        product information and support.
+        </li>
+        <li>To personalize and customize your home automation experience.
+        </li>
+        <li>To share with independent dealers that sell and service SAVI Controls
+        products in your geographical area. We don’t typically sell our products
+        directly to our end users, so it is important that you have access to
+        authorized dealers to be able to purchase our products.
+        </li>
+        <li>To improve our products and services.
+        </li>
+        <li>To process orders, returns and payments from our independent dealers and
+        distributors.
+        </li>
+        <li>To run promotions, contests, surveys or other features.
+        </li>
+        <li>To conduct market research about our users, improve our marketing
+        campaigns, content on our Sites, and display personalized ads to you on the
+        internet.
+        </li>
+        <li>To contract you by telephone to discuss your account or respond to
+        requests and questions.
+        </li>
+        <li>To send you periodic emails. We may use email addresses provided to us to
+        send information and updates pertaining to accounts, purchases, or products.
+        It may also be used to respond to inquiries, questions, and/or other
+        requests. If you decide to opt-in to our mailing list, you will also receive
+        emails that may include company news, newsletters, surveys, updates, related
+        product or service information, and the like.
+        </li>
+        <li>For other purposes when we have your consent.
+        </li>
+      </ol>
+      <p>
+        We may also use information in the aggregate to understand how our visitors
+        and customers as a group use the resources provided on our Sites and improve
+        our products. We may also share aggregated, non-personally identifiable
+        information publicly and with our partners. We take steps to keep this
+        non-personal information from being associated with you and we require our
+        partners to do the same.
+      </p>
+      <h5>
+        F. HOW TO OPT-OUT OF COMMUNICATIONS FROM SAVI CONTROLS
+      </h5>
+      <p>
+        At various locations on our Sites or social media pages, you have the option
+        to opt-in to receiving general communications from SAVI Controls. If you
+        opt-in, you may change your mind at any time and tell us that you do not wish
+        to receive these general messages by (i) sending an email to
+        privacy@savicontrols.com, (ii) by clearly following the "unsubscribe"
+        instructions at the bottom of any email you receive, or (iii) by contacting
+        our privacy department at the address below to unsubscribe from specific
+        mailing lists.
+      </p>
+      <h5>
+        G. HOW WE PROTECT YOUR PERSONAL INFORMATION
+      </h5>
+      <p>
+        Your personal information and data files are stored on SAVI Controls’ servers
+        and the servers of companies we hire to provide data storage services to us.
+        SAVI Controls takes precautions including industry standard administrative,
+        technical, and physical measures that are designed to safeguard the personal
+        information collected from visitors and customers against loss, theft, and
+        misuse, as well as unauthorized access, disclosure, alteration and
+        destruction. When you enter personal information on our forms, we encrypt
+        this data using SSL or other technologies. These technologies are designed to
+        protect the confidentiality of your personal information when it's
+        transmitted over the Internet. Notwithstanding all of our efforts, no
+        security controls are 100% effective and SAVI Controls cannot guarantee that
+        unauthorized third parties will never be able to defeat our security measures
+        or use your personal information for improper purposes. In the event that
+        your personal information under our control is compromised as a result of a
+        breach of security, we will take reasonable steps to investigate the
+        situation and where appropriate, notify those individuals whose information
+        may have been compromised and take other steps in accordance with any
+        applicable laws and regulations.
+      </p>
+      <h4>
+        3. WHEN WE DISCLOSE YOUR PERSONAL INFORMATION
+      </h4>
+      <h5>
+        A. Generally
+      </h5>
+      <p>
+        Your personal information may be shared our subsidiaries and affiliates who
+        are obligated to safeguard it in accordance with this Privacy Policy. There
+        are also times when it may be advantageous for SAVI Controls to make certain
+        personal information about you available to companies with whom SAVI Controls
+        has a strategic relationship or that provide products and services to you on
+        our behalf, including one or more independent dealers of SAVI Controls
+        products serving your geographical area. These companies may use your
+        personal information only to assist us accomplish one or more of the purposes
+        for which we collected the information as set forth herein. For example,
+        these partners may help us process information, extend credit, sell and
+        deliver products to you, fulfill orders, manage and enhance customer data,
+        provide customer service, assess your interest in our products and services,
+        or conduct customer research or satisfaction surveys. Be assured, however,
+        that SAVI Controls does not sell or rent your personal information to other
+        third party marketers or spammers.
+      </p>
+      <h5>
+        B. In Connection with an Acquisition
+      </h5>
+      <p>
+        SAVI Controls may transfer its database, including personal information
+        contained therein, to a third party who acquires all or substantially all of
+        the assets or stock of SAVI Controls whether by merger, acquisition,
+        reorganization or otherwise. If this occurs, we will request that the
+        purchaser continue to abide by the principles of the Privacy Statement, with
+        respect to any data we’ve collected hereunder.
+      </p>
+      <h5>
+        C. In Connection with Legal Process or Investigation
+      </h5>
+      <p>
+        SAVI Controls may also disclose your personal information to a third party if
+        required to do so by law or if, in good faith, SAVI Controls believes that
+        such action is necessary to: (i) comply with the law or with legal process;
+        (ii) protect and defend SAVI Controls’ rights and property or prevent fraud;
+        (iii) protect SAVI Controls against abuse, misuse or unauthorized use of SAVI
+        Controls’ products or services; or (iv) protect the personal safety or
+        property of personnel, users or the public.
+      </p>
+      <h5>
+        D. CHILDREN'S PRIVACY
+      </h5>
+      <p>
+        The privacy of the very young is especially important to SAVI Controls. For
+        that reason, and in accordance with the Children's Online Privacy Protection
+        Act, we never collect or maintain information at the Sites from those we
+        actually know are under 13, and no part of the Sites is structured to attract
+        anyone under 13.
+      </p>
+      <h5>
+        E. INTERNATIONAL VISITORS AND THE SAFE HARBOR FRAMEWORK
+      </h5>
+      <p>
+        If you are accessing our Sites from regions of the world with laws governing
+        data collection and use that differ from U.S. law, then please note that your
+        personal data will be transferred to the United States and by providing your
+        personal data you consent to this transfer.
+      </p>
+      <p>
+        SAVI Controls participates in the U.S.–E.U. Safe Harbor program and the
+        U.S.–Swiss Safe Harbor program which was developed by the U.S. Department of
+        Commerce regarding the collection, use, and retention of personal information
+        collected from the European Union. To view SAVI Controls’ Safe Harbor
+        certification status, visit https://safeharbor.export.gov/list.aspx. To learn
+        more about the U.S. Department of Commerce Safe Harbor principles, visit
+        www.export.gov/safeharbor. If you have any complaints regarding our
+        compliance with the Safe Harbor program, you should first contact us at
+        privacy@savicontrols.com. If the complaint cannot be resolved through an
+        internal dispute resolution process, we may submit your complaint to JAMS for
+        mediation under the JAMS International Mediation Rules, which are accessible
+        on the JAMS website at http://www.jamsadr.com.
+      </p>
+      <h5>
+        F. THIRD PARTY LINKED WEBSITES
+      </h5>
+      <p>
+        The Site contains links to other websites. Please be aware that SAVI Controls
+        is not responsible for the privacy practices of such other websites. SAVI
+        Controls encourages you to be aware when you leave the Sites and to read the
+        privacy statements of each website you visit. While SAVI Controls carefully
+        chooses the websites to which it agrees to link, this Privacy Policy applies
+        only to information collected on our Sites, and we are not responsible for
+        the privacy policies, practices or acts or omissions of any third party
+        website.
+      </p>
+      <h5>
+        G. ACCESSING AND UPDATING YOUR INFORMATION
+      </h5>SAVI Controls takes reasonable steps to ensure that your personal
+      information we process is accurate, complete and current by using the most
+      recent information provided to us. As a visitor or consumer, you are always
+      entitled to access and update your personal information or modify communication
+      preferences by updating by contacting:
+      <pre>
+                SAVI Controls, LLC.
+                Attention: Privacy Request
+                2420 Tarpley Rd. Suite 202
+                Carrollton, Texas 75006
+              </pre>
+      <p>
+        E-mail us: <a class="privacy-link" href=
+        "mailto:privacy@savicontrols.com">privacy@savicontrols.com</a>
+      </p>
+      <h4>
+        4. CHANGES
+      </h4>
+      <p>
+        Our Privacy Policy may change from time to time, but we will not reduce the
+        level of protection of your personal information collected pursuant to a
+        previous version of this Privacy Policy without your consent. We will post
+        any changes to our Privacy Policy on this page and we encourage you to
+        periodically review our privacy policy for the latest information on our
+        privacy practices. For new users, the changes or updates will become
+        effective upon posting. For existing users, the changes or updates will
+        become effective 30 days after posting.
+      </p>
+      <h4>
+        5. QUESTIONS OR CONCERNS
+      </h4>
+      <p>
+        If you have any questions or concerns about this policy or your information,
+        please email us at <a class="privacy-link" href=
+        'mailto:privacy@savicontrols.com'>privacy@savicontrols.com</a>.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect btn-flat ">Close</a>
+    </div>
+  </div>
+
+
+  <!-- TERMS OF SERVICE -->
+  <div id="terms_modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h2>
+        Terms of Service
+      </h2>
+      <p>
+        PLEASE READ CAREFULLY THESE TERMS OF USE, AS THEY CONSTITUTE A BINDING
+        LEGAL AGREEMENT BETWEEN YOU AND SAVI CONTROLS, LLC ("SAVI Controls"), AND
+        GOVERN YOUR USE OF THE SAVI CONTROLS SOFTWARE AND APPLICATION SERVICES.
+        BY USING THE SOFTWARE, WEBSITE OR SUCH SERVICES, YOU ARE ACCEPTING AND
+        AGREEING TO THESE TERMS ON BEHALF OF YOURSELF OR THE ENTITY YOU
+        REPRESENT, AND YOU REPRESENT AND WARRANT THAT YOU HAVE THE RIGHT,
+        AUTHORITY, AND CAPACITY TO ACCEPT AND AGREE TO THESE TERMS ON BEHALF OF
+        YOURSELF OR THE ENTITY YOU REPRESENT. IF YOU DO NOT AGREE WITH THESE
+        TERMS OF USE, YOU MAY NOT ACCESS, REGISTER FOR OR USE THE SOFTWARE,
+        SERVICES AND WEBSITE.
+      </p>
+      <h4>
+        1. Introduction and Scope
+      </h4>
+      <p>
+        SAVI Controls, LLC. ("SAVI Controls") sells hardware products (the
+        "Hardware") and software, either embedded in the Hardware or distributed
+        separately (the "Software" and together with the Hardware, the "SAVI
+        Server"). SAVI Controls also owns and operates the websites located at
+        www.savicontrols.com and other related SAVI Controls web pages (the
+        "Website"), and provides access to certain internet and software
+        application services related to the use and operation of SAVI Server.
+      </p>
+      <p>
+        These Terms of Use, together with the SAVI Controls privacy policy, form
+        a binding legal agreement between you and SAVI Controls, LLC (the
+        "Agreement") that sets forth the terms and conditions under which SAVI
+        Controls agrees to make the Software, Website and the Services available
+        to you and which govern your use of the Software, Website and the
+        Services provided to you.
+      </p>
+      <p>
+        For the avoidance of doubt, the SAVI Controls End User License Agreement
+        between you and SAVI Controls (the "EULA") sets forth the terms and
+        conditions that apply to your use of any Software, and the SAVI Controls
+        Limited Warranty provided with your Hardware (the "Warranty") sets forth
+        the terms of the limited warranty that applies to the Hardware. A copy of
+        the Warranty is available at www.savicontrols.com/legal/warranty, and a
+        copy of the EULA is available at www.savicontrols.com/legal/eula.
+      </p>
+      <p>
+        SAVI Controls may, in its sole discretion and without prior notice to
+        you, add, delete or otherwise change the provisions of these Terms by
+        posting on the Website a version of these Terms containing such changes.
+        You should periodically check the Website for the most current version of
+        these Terms. If you are dissatisfied with any such changes to these
+        Terms, your sole recourse will be to cease use of the Software and the
+        Services or any portion thereof, in accordance with Section 9 below.
+      </p>
+      <h4>
+        2. Services
+      </h4>
+      <p>
+        The features and functions of the Software and Services are described in
+        more detail in the applicable SAVI Controls user documentation and
+        guidelines available elsewhere on the Website. The Services include any
+        additional features and functionality that SAVI Controls may, in its sole
+        discretion and from time to time, offer to you. SAVI Controls may, in its
+        sole discretion and without notice to you, add, delete or otherwise
+        change features and functions of the Software and Services at any time.
+        If you are dissatisfied with any such changes to the Software and
+        Services, you may immediately cancel your use of such Services as
+        provided in Section 9 below.
+      </p>
+      <h4>
+        3. License Rights and Use Restrictions
+      </h4>
+      <p>
+        (a) Access and Use. Subject to the terms and conditions of this
+        Agreement, any applicable limitations on the number of devices and
+        payment of any applicable fees, SAVI Controls grants you a
+        non-transferable, non-exclusive, right (without the right to sublicense)
+        to access and use the Services as provided to you by Control4 and solely
+        for the purpose of controlling and monitoring your SAVI Server (the
+        "Permitted Purpose").
+      </p>
+      <p>
+        (b) Certain Restrictions. Your use of the Software and Services is
+        subject to the following restrictions: you agree (i) not to license,
+        sell, rent, lease, transfer, assign, distribute, host, or otherwise
+        commercially exploit the Software and Services; (ii) not to modify, make
+        derivative works of, disassemble, reverse compile, or reverse engineer
+        any part of the Software and Services; (iii) not to access the Software
+        and Services in order to build a similar or competitive service, (iv) not
+        to use the Software and Services for any unlawful purpose, or for any
+        purpose other than the Permitted Purpose; (v) that no part of the
+        Software and Services may be copied, reproduced, distributed,
+        republished, downloaded, displayed, posted, or transmitted in any form or
+        by any means; (vi) not to upload, transmit, or distribute any computer
+        viruses, worms, or any software intended to damage or alter a computer or
+        communication network, computer, handheld mobile device, data, the
+        Website, the Services, the Hardware, the Software, or any other system,
+        device or property; (vii) not to interfere with, disrupt, or attempt to
+        gain unauthorized access to, the servers or networks connected to the
+        Website or the Services, or violate the regulations, policies, or
+        procedures of such networks; (viii) not to access (or attempt to access)
+        any of the Services by means other than through the interface that is
+        provided by SAVI Controls; and (ix) not to remove, obscure or alter any
+        proprietary rights notices (including copyrights and trademark notices)
+        which may be contained in or displayed in connection with the Website or
+        the Software and Services.
+      </p>
+      <p>
+        <b>(c) IN ADDITION, IN NO EVENT DOES SAVI CONTROLS AUTHORIZE YOU OR
+        ANYONE ELSE TO USE THE SOFTWARE AND SERVICES WHERE THE FAILURE OF THE
+        SOFTWARE AND SERVICES TO PERFORM CAN REASONABLY BE EXPECTED TO RESULT IN
+        SIGNIFICANT PHYSICAL INJURY, OR IN LOSS OR PROPERTY, OR IN LOSS OF LIFE.
+        ANY SUCH USE IS ENTIRELY AT YOUR OWN RISK, AND YOU AGREE TO INDEMNIFY AND
+        HOLD SAVI CONTROLS HARMLESS FROM ANY AND ALL CLAIMS OR LOSSES RELATING TO
+        SUCH UNAUTHORIZED USE.</b>
+      </p>
+      <p>
+        <b>(d) Modification. SAVI Controls reserves the right, at any time, to
+        modify, suspend, or discontinue the Software and Services or any part
+        thereof, with or without notice. You agree that SAVI Controls will not be
+        liable to you or to any third party for any modification, suspension, or
+        discontinuance of the Software and Services or any part thereof.</b>
+      </p>
+      <h4>
+        4. Third-Party Content
+      </h4>
+      <p>
+        The Software and Services may give you the ability to access content,
+        such as music or video services, television or other material, controlled
+        or provided by third parties ("Third-Party Content"). You understand and
+        acknowledge that: (a) Third-Party Content remains the property of the
+        applicable third parties, who have the sole right to determine your
+        rights to use such content; (b) SAVI Controls is not responsible for, and
+        has no editorial control over, any Third-Party Content, and SAVI Controls
+        does not sponsor or endorse any such content; and (c) SAVI Controls has
+        no control over the distribution of Third-Party Content. You agree that
+        SAVI Controls will have no liability to you or to any third parties,
+        including without limitation to anyone else who uses your SAVI Server,
+        related to or arising out of to any Third-Party Content. You also agree
+        that neither the Software and Services will not be used to illegally
+        copy, display or otherwise make use of Third-Party Content without
+        authorization from the appropriate rights holder or in violation of
+        applicable law. Unauthorized copying or distribution of copyrighted or
+        trademarks may constitute an infringement of the copyright or trademark
+        holders' intellectual property rights. In addition, steps intended to
+        defeat or bypass security measures designed to prevent infringement of
+        the intellectual property rights of others may be illegal under U.S. law
+        or comparable foreign laws. SAVI Controls reserves the right to terminate
+        your right to access and use the Software and Services and delete your
+        account if SAVI Controls believes in good faith that you have used the
+        Software and Services or your SAVI Server to infringe upon the
+        intellectual property rights of others.
+      </p>
+      <h4>
+        5. Internet Service Provider Charges
+      </h4>
+      <p>
+        Access to and use of the Software and Services requires the use of, and
+        you are responsible for, an always-on broadband Internet connection. SAVI
+        Controls is not responsible for and does not make any assurances about
+        the availability or functionality of any broadband Internet connection.
+        Network protection for your Internet connection is strongly advised to
+        protect your SAVI Server against viruses and other types of harm. You are
+        responsible for any service charges for your Internet connection incurred
+        as a result of using or accessing the Website and/or the Software and
+        Services and acknowledge and agree that you shall be solely responsible
+        for all disputes with any Internet service provider related to the same.
+      </p>
+      <h4>
+        6. Certain of Your Representations and Warranties to SAVI Controls
+      </h4>
+      <p>
+        You represent and warrant to SAVI Controls that: (a) you have provided or
+        will provide SAVI Controls with User Information that is correct and
+        complete; (b) you will not use the Software and Services in violation of
+        any applicable laws, regulations, or ordinances or for any illegal or
+        unauthorized activities; (c) you take full responsibility for the actions
+        of anyone to whom you disclose your password or login ID or whom you
+        otherwise allow to access your account; and (d) you will never
+        circumvent, compromise, nor attempt to circumvent or compromise any SAVI
+        Controls security measures in connection with the Software and Services.
+      </p>
+      <h4>
+        7. Dealers Are Independent Contractors, Not Agents of SAVI Controls
+      </h4>
+      <p>
+        You are required to purchase your SAVI Server System from an authorized
+        SAVI Controls dealer ("Dealer") in your area of your choice. While such
+        Dealers receive training regarding SAVI Server, Dealers are independent
+        contractors and service providers, and not employees or agents of SAVI
+        Controls. Accordingly, (i) SAVI Controls makes no representations or
+        warranties with respect to Dealers or their services and is in no way
+        responsible for their acts or omissions, and (ii) Dealers have no right
+        to bind SAVI Controls legally or otherwise make commitments on behalf of
+        SAVI Controls. You are solely responsible to select a competent Dealer
+        that meets your expectations. Such Dealer may offer additional
+        installation, configuration or ongoing maintenance services. Any
+        disputes, which may arise between you and your Dealer, are to be resolved
+        between you and your Dealer.
+      </p>
+      <h4>
+        8. Term and Termination
+      </h4>
+      <p>
+        These Terms will remain in full force and effect so long as you continue
+        to use or access the Software, Website and/or the Services, or until
+        terminated in accordance with the provisions of this section. You may
+        terminate your account and your right to use the Software and Services
+        for any reason, at any time. Your access to the Software and Services and
+        your account will be terminated upon your written or emailed request and
+        any unused Subscription Fees that you have paid are nonrefundable. At any
+        time SAVI Controls may suspend or terminate your rights to use the
+        Software and Services, if SAVI Controls in good faith believes that you
+        have used the Software and Services in violation of this Agreement. If
+        you transfer or assign your SAVI Server or any portion thereof to a new
+        owner, your right to use the Software and Services with respect to such
+        products automatically terminates, and the new owner will have no right
+        to use the Software and Services under your account (as described below),
+        and will be required to register for a separate account with SAVI
+        Controls. In addition, SAVI Controls reserves the right to terminate your
+        Software and Services account and this Agreement for any reason or no
+        reason, if SAVI Controls gives you at least thirty (30) days advance
+        notice of such termination. Upon any such termination of your account by
+        SAVI Controls, you will remain obligated to pay all outstanding fees and
+        charges relating to your use of the Software and Services prior to
+        termination, but SAVI Controls will return any unused Subscription Fees
+        that you have paid if Your account is terminated for any reason other
+        than Your breach of this Agreement.
+      </p>
+      <h4>
+        9. Ownership
+      </h4>
+      <p>
+        You acknowledge that all right title and interest in and to the Software
+        and Services, including all intellectual property rights therein and
+        thereto, remain the exclusive property of SAVI Controls and its
+        licensors, and this Agreement grants to you no right or interest therein
+        other than the limited rights expressly set forth herein, and SAVI
+        Controls and its licensors and suppliers reserve all rights not granted
+        in this Agreement.
+      </p>
+      <h4>
+        10. Your Indemnification of SAVI Controls
+      </h4>
+      <p>
+        You agree to defend, indemnify and hold harmless SAVI Controls, and its
+        officers, directors, employees, consultants, agents, and other
+        representatives, from and against any and all suits, claims, actions,
+        proceedings, damages, demands, injuries, liabilities, losses, costs and
+        expenses (including reasonable attorneys fees), arising from or related
+        to: (a) your negligence or willful misconduct; (b) your use of the
+        Software and Services; (c) your breach of any of your representations,
+        warranties, obligations, or covenants in this Agreement; and (d) your use
+        of Third-Party Content.
+      </p>
+      <h4>
+        11. Warranty Disclaimers
+      </h4>
+      <p>
+        (a) THE WEBSITE AND THE SOFTWARE AND SERVICES ARE PROVIDED FOR YOUR
+        CONVENIENCE, ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTY OF
+        ANY KIND, AND SAVI CONTROLS AND ITS LICENSORS AND SUPPLIERS EXPRESSLY
+        DISCLAIM, TO THE GREATEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, ANY
+        AND ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR
+        IMPLIED, INCLUDING, WITHOUT LIMITATION, THE WARRANTIES OR CONDITIONS OF
+        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, AND
+        NON-INFRINGEMENT.
+      </p>
+      <p>
+        (b) WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, SAVI CONTROLS AND
+        ITS LICENSORS AND SUPPLIERS MAKE NO WARRANTY THAT DEFECTS WILL BE
+        CORRECTED OR THAT THE WEBSITE OR THE SOFTWARE AND SERVICES: (I) WILL MEET
+        YOUR REQUIREMENTS; (II) WILL BE COMPATIBLE WITH YOUR COMPUTER OR MOBILE
+        DEVICE; (III) WILL BE AVAILABLE ON AN UNINTERRUPTED, TIMELY, SECURE, OR
+        ERROR-FREE BASIS; OR (IV) WILL BE ACCURATE OR RELIABLE. NO ADVICE OR
+        INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED BY YOU FROM SAVI CONTROLS,
+        ANY DEALER OR THROUGH THE WEBSITE OR THE SOFTWARE AND SERVICES SHALL
+        CREATE ANY WARRANTY WITH RESPECT TO THE WEBSITE OR THE SOFTWARE AND
+        SERVICES. FURTHER, SAVI CONTROLS DOES NOT WARRANT THAT THE WEBSITE OR THE
+        SOFTWARE AND SERVICES OR THE CONTROL4 SERVERS THAT PROVIDE YOU WITH DATA
+        AND CONTENT ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. YOU ASSUME
+        THE ENTIRE RISK WITH RESPECT TO YOUR USE OF THE SOFTWARE AND SERVICES.
+        FURTHERMORE,
+      </p>
+      <p>
+        SAVI CONTROLS MAKES NO WARRANTIES, EXPRESS OR IMPLIED, WITH RESPECT TO
+        ANY PROFESSIONAL SERVICES PERFORMED BY ANY SAVI CONTROLS DEALERS.
+      </p>
+      <h4>
+        12. LIMITATION OF LIABILITY
+      </h4>
+      <p>
+        IN NO EVENT WILL SAVI CONTROLS OR ANY OF ITS SUPPLIERS BE LIABLE TO YOU
+        OR ANY THIRD PARTY FOR ANY: (A) SPECIAL, INDIRECT, INCIDENTAL, PUNITIVE,
+        OR CONSEQUENTIAL DAMAGES, OR FOR ANY COST OF PROCUREMENT OF SUBSTITUTE
+        GOODS OR SERVICES, ARISING FROM OR RELATED TO SAVI CONTROL'S PERFORMANCE
+        OR FAILURE TO PERFORM IN ACCORDANCE WITH THIS AGREEMENT, OR YOUR USE OF
+        THE WEBSITE AND/OR THE SOFTWARE AND SERVICES, OR THE OPERATION OR USE OF
+        THE SOFTWARE AND SERVICES OR YOUR SAVI SERVER THROUGH YOUR ACCOUNT BY
+        ANYONE ELSE, INCLUDING WITHOUT LIMITATION DAMAGES ARISING FROM LOSS OF
+        DATA, PROGRAMMING OR THIRD PARTY CONTENT, LOSS OF REVENUE OR PROFITS, OR
+        FOR BUSINESS INTERRUPTION; (B) FAILURE TO REALIZE SAVINGS OR OTHER
+        BENEFITS, DAMAGE TO EQUIPMENT, AND CLAIMS AGAINST YOU BY ANY THIRD
+        PERSON; (C) DAMAGES (REGARDLESS OF THEIR NATURE) FOR ANY DELAY OR FAILURE
+        BY SAVI CONTROLS TO PERFORM ITS OBLIGATIONS UNDER THIS AGREEMENT DUE TO
+        ANY CAUSE BEYOND SAVI CONTROL'S REASONABLE CONTROL; OR (D) CLAIMS MADE A
+        SUBJECT OF A LEGAL PROCEEDING AGAINST SAVI CONTROLS MORE THAN ONE YEAR
+        AFTER ANY SUCH CAUSE OF ACTION FIRST AROSE. NOTWITHSTANDING ANY OTHER
+        PROVISION OF THIS AGREEMENT, SAVI CONTROLS' AND ITS SUPPLIERS' TOTAL,
+        CUMULATIVE LIABILITY ARISING FROM OR RELATED TO YOUR USE OF THE WEBSITE
+        AND/OR THE SOFTWARE AND SERVICES, WHETHER IN CONTRACT OR TORT OR
+        OTHERWISE, SHALL NOT EXCEED THE FEES ACTUALLY PAID BY YOU TO SAVI
+        CONTROLS OR SAVO CONTROLS’ AUTHORIZED RESELLER FOR THE SOFTWARE AND
+        SERVICES GIVING RISE TO LIABILITY IN THE SIX (6) MONTHS IMMEDIATELY PRIOR
+        TO THE EVENT GIVING RISE TO LIABILITY. YOU AGREE THAT THE EXCLUSIONS AND
+        LIMITATIONS OF LIABILITY SET FORTH IN THIS SECTION 14 APPLY WHETHER A
+        CLAIM IS ALLEGED AS A BREACH OF CONTRACT OR TORTIOUS CONDUCT, INCLUDING
+        NEGLIGENCE, EVEN IF A PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+        DAMAGES.
+      </p>
+      <p>
+        YOU ALSO AGREE THAT THE FOREGOING EXCLUSIONS AND LIMITATIONS OF LIABILITY
+        ARE A REASONABLE ALLOCATION OF THE RISK BETWEEN THE PARTIES, FORM A
+        MATERIAL PART OF THIS AGREEMENT, AND WILL APPLY TO THE MAXIMUM EXTENT
+        PERMITTED BY APPLICABLE LAW, EVEN IF ANY LIMITED REMEDY PROVIDED TO YOU
+        FAILS IN ITS ESSENTIAL PURPOSE.
+      </p>
+      <h4>
+        13. Exclusions
+      </h4>
+      <p>
+        Some jurisdictions do not allow the exclusion of implied warranties or
+        the exclusion or limitation of incidental or consequential damages, so
+        the above limitations or exclusions may not apply to you. This Agreement
+        gives you specific legal rights, and you may also have other rights,
+        which vary from jurisdiction to jurisdiction. The disclaimers,
+        exclusions, and limitations of liability under this Agreement will not
+        apply to the extent prohibited by applicable law.
+      </p>
+      <h4>
+        14. Forward-Looking Statements
+      </h4>
+      <p>
+        This website contains express or implied forward-looking statements,
+        which are based on current expectations of management. These statements
+        relate to, among other things, our expectations regarding management's
+        plans, objectives, and strategies. These statements are neither promises
+        nor guarantees, but are subject to a variety of risks and uncertainties,
+        many of which are beyond our control, and which could cause actual
+        results to differ materially from those contemplated in these
+        forward-looking statements. In particular, the risks and uncertainties
+        include, among other things: changing market conditions, the introduction
+        of new competitive products, challenges related to changing technologies,
+        supply chain disruptions, unanticipated defects or deficiencies in the
+        hardware, software or related services or changes in governmental
+        regulations or requirements. SAVI Controls assumes no obligation to
+        update any forward-looking statements contained on the Website in the
+        event of changing circumstances or otherwise, and such statements are
+        current only as of the date they are made.
+      </p>
+      <h4>
+        15. Updates
+      </h4>
+      <p>
+        SAVI Controls may make improvements and/or changes to the Software and
+        Services at any time. We also attempt to periodically make updates to the
+        Website; however, the information, materials and services provided on or
+        through the Website may occasionally be inaccurate, incomplete or out of
+        date. SAVI Controls does not have a duty to update information contained
+        in this Website, and SAVI Controls will not be liable for any failure to
+        update such information. We make no representation as to the
+        completeness, accuracy or timeliness of any information on this Website,
+        and we undertake no obligation to update or revise the information
+        contained on this Website, whether as a result of new information, future
+        events or circumstances or otherwise. It is your responsibility to verify
+        any information contained in this Website before relying upon it.
+      </p>
+      <h4>
+        16. Governing Law and Jurisdiction; Waiver of Jury Trial
+      </h4>
+      <p>
+        This Agreement and any claims arising hereunder will be governed by the
+        laws of the State of Texas, excluding principles of conflict or choice of
+        law. The United Nations Convention on Contracts for the International
+        Sale of Goods does not apply to these Terms. To the extent permitted by
+        applicable law, you and SAVI Controls hereby irrevocably submit to the
+        jurisdiction of any Texas state court or United States federal court, in
+        either case sitting in Texas over any suit, action or other proceeding
+        brought by you, a third party, or SAVI Controls arising out of or
+        relating to these Terms, and you and SAVI Controls hereby irrevocably
+        agree that all claims with respect to any such suit, action or other
+        proceeding shall be heard and determined in such courts. THE PARTIES
+        HEREBY UNCONDITIONALLY WAIVE THEIR RESPECTIVE RIGHTS TO A JURY TRIAL OF
+        ANY CLAIM OR CAUSE OF ACTION ARISING DIRECTLY OR INDIRECTLY OUT OF,
+        RELATED TO, OR IN ANY WAY CONNECTED WITH THE PERFORMANCE OR BREACH OF
+        THIS AGREEMENT, AND/OR THE RELATIONSHIP THAT IS BEING ESTABLISHED AMONG
+        THEM. The scope of this waiver is intended to be all encompassing of any
+        and all disputes that may be filed in any court or other tribunal
+        \(including, without limitation, contract claims, tort claims, breach of
+        duty claims, and all other common law and statutory claims). THIS WAIVER
+        IS IRREVOCABLE, MEANING THAT IT MAY NOT BE MODIFIED EITHER ORALLY OR IN
+        WRITING, AND THE WAIVER SHALL APPLY TO ANY SUBSEQUENT AMENDMENTS,
+        RENEWALS, SUPPLEMENTS, OR MODIFICATIONS TO THIS AGREEMENT, AND RELATED
+        DOCUMENTS, OR TO ANY OTHER DOCUMENTS OR AGREEMENTS RELATING TO THIS
+        TRANSACTION OR ANY RELATED TRANSACTION. In the event of litigation, this
+        Agreement may be filed as a written consent to a trial by the court.
+      </p>
+      <h4>
+        17. Miscellaneous
+      </h4>
+      <p>
+        This Agreement represents the entire agreement between you and SAVI
+        Controls with respect to your use, and SAVI Controls’ provision, of the
+        Website and the Software and Services, and its terms supersede and
+        replace any prior or contemporaneous written or oral statements by SAVI
+        Controls or its representatives, dealers, or resellers. If any provision
+        of this Agreement is held by a court to be invalid or unenforceable under
+        applicable law, such provision will be deemed modified to the extent
+        necessary to render such provision valid and enforceable, and the other
+        provisions of this Agreement will remain in full force and effect. The
+        official text of this Agreement or notice submitted hereunder shall be in
+        English. In the event of any dispute concerning the construction or
+        meaning of this Agreement, reference shall be made only to this Agreement
+        as written in English and not to any translation into another language,
+        and this Agreement will not be construed against the drafting party. You
+        may not amend this Agreement except in a writing signed by SAVI Controls.
+        You may not assign, sublicense or transfer any of your rights and
+        obligations under this Agreement to a third party without SAVI Controls’
+        prior written consent. Any attempted assignment, sublicense, or transfer
+        without the prior written consent of SAVI Controls shall be null and
+        void. SAVI Controls’ failure to enforce any of the terms of the terms and
+        conditions of this Agreement shall not constitute a waiver or
+        relinquishment of SAVI Controls’ right to do so at any time. Sections
+        4(b), 5, 9, and 11 - 16 shall survive any termination or expiration of
+        this Agreement.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect btn-flat ">Close</a>
+    </div>
+  </div>
+
+  <!-- TERMS OF SERVICE -->
+  <div id="agreement_modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>AUTHORIZED SAVI DEALER AGREEMENT</h4>
+
+      <p>
+        The following Authorized Dealer Agreement, the "AGREEMENT," is made by and
+        between SAVI Controls, LLC, under the laws of the State of Texas and having
+        its principal office at 2420 Tarpley Rd, Suite 210, Carrollton, TX 75006,
+        hereinafter referred to as "SAVI" and our newest SAVI Authorized Dealer with
+        its principle offices noted in their SAVI Dealer Application hereinafter
+        referred to as "DEALER".
+      </p>
+
+      <h5>1. APPOINTMENT AND ACCEPTANCE</h5>
+
+      <p>
+        SAVI appoints DEALER as a non-exclusive, unless otherwise noted in
+        Section 2.c.), Authorized DEALER for all SAVI PRODUCTS listed under the
+        SCHEDULE A hereto (the "PRODUCT").
+      </p>
+
+      <p>Appointment is subject to the license AGREEMENT and other
+      terms and conditions as set forth herein. Such terms and conditions
+      may be modified by SAVI from time to time, without prior notice, as pertaining
+      to DEALER programs, promotions and PRODUCT. SAVI makes no representation of warranty
+      regarding PRODUCT availability. DEALER accepts the appointment and agrees to
+      use its best efforts to sell and promote the sale of PRODUCTS.</p>
+
+      <h5>2. LICENSE, LOCATIONS AND TERRITORY</h5>
+
+      <p>
+        <i>a.) Technical Proficiency:</i>
+        DEALER agrees to maintain on staff a minimum of one SAVI Certified Technician
+        with prior audio/video and control systems integration experience. Failure to
+        maintain such staff may result in suspension or loss of license and authorized
+        DEALER status with SAVI. SAVI Certified Technician requires: Tech I Control4
+        Certification and SAVI Technical Certification.
+      </p>
+
+      <p>
+        <i>b.) License:</i>
+        SAVI grants DEALER a limited license for the purpose
+        of promoting and distributing the PRODUCTS to commercial buyers and end-users
+        in the United States (and its territories) and other territories if agreed to
+        by both parties from time to time through DEALER sales channels, in accordance
+        with DEALER obligations as set forth in the SCHEDULE A included below (pages
+        8-9).
+      </p>
+
+      <p>
+        <i>c.) Locations and Territory:</i>
+        DEALER may distribute PRODUCTS from
+        one or more locations, provided that SAVI separately approves each location,
+        electronically or in writing, beyond the primary location shown above.
+      </p>
+
+      <p>
+        <i>d.) Reserved Rights: </i>
+        SAVI reserves the right, at its discretion, to: <i>(i) </i>change PRODUCT
+        offerings, <i>(ii)</i> authorize other DEALER, <i>(iii)</i> market and sell
+        SAVI PRODUCTS through other DEALER channels and other means.
+      </p>
+
+      <p>
+        <i>e.) Intellectual Property:</i>
+        The license and dealership granted herein to DEALER does not
+        constitute a sale or transfer of ownership of any intellectual property of
+        SAVI, including but not limited to patents, copyrights, trade secrets, or other
+        rights (the "SAVI intellectual property") all of which are owned by SAVI.
+        DEALER shall not decompile or reverse engineer any SAVI intellectual property
+        ("SAVI IP"), nor shall DEALER develop or attempt to develop any derivative work
+        based in whole or in part on SAVI IP.
+      </p>
+
+      <h5>3. PRICING AND TAXES</h5>
+
+      <p>
+        <i>a.) PRICING:</i>
+        SAVI will sell PRODUCTS to DEALER at prices according to current published
+        price list when orders are placed, or as otherwise agreed upon by both parties.
+        Any new or revised price list will immediately and automatically supersede all
+        prior price lists. Prices do not include sales, use, excise or other similar taxes.
+      </p>
+
+      <p>
+        <i>b.) Taxes:</i>
+        The amount of any valid present or future tax that is attributable to DEALER,
+        shall be paid by DEALER, or in lieu thereof, DEALER shall provide SAVI with a
+        tax exemption certificate acceptable to all relevant authorities.
+      </p>
+
+      <p>
+        <i>c.) Dealer Retail Pricing:</i>
+        DEALER determines its own price for sales to its customers. SAVI provides a
+        Manufacturer's Suggested Retail Price (MSRP) for reference purposes, and SAVI
+        shall not interfere with retail pricing established by DEALER.
+      </p>
+
+      <p>
+        <i>d.) Related Matters:</i>
+        DEALER shall not
+        make any deductions from amounts due to SAVI unless SAVI has issued a credit
+        memo or other such authorization in writing. Any unauthorized deduction shall
+        be grounds for potential termination of this AGREEMENT, without any liability
+        to DEALER. DEALER hereby grants SAVI a security interest in all PRODUCTS sold
+        by SAVI to DEALER until such time that payment is received in full for such
+        PRODUCTS, and agrees that SAVI may file such financing statements as SAVI deems
+        necessary to perfect such security interests.
+      </p>
+
+      <h5>4. PURCHASE ORDERS</h5>
+
+      <p>
+        <i>a.) Form:</i>
+        Orders for SAVI PRODUCTS are
+        to be initiated by "Purchase Order" (PO) from DEALER in the format designated
+        by SAVI, including electronic PO's. Each PO submitted by DEALER shall be
+        binding upon the parties upon written acceptance by SAVI or upon shipment of
+        PRODUCT by SAVI. The terms and conditions of this AGREEMENT shall apply to
+        all PO's and will supersede any other terms or conditions set forth on any PO
+        submitted by DEALER, notwithstanding SAVI's acceptance and fulfillment thereof.
+      </p>
+
+      <p>
+        <i>b.) Forecasts:</i>
+        DEALER shall provide SAVI with a written quarterly forecast of
+        expected orders for the upcoming calendar quarter. DEALER too agrees that
+        quarterly forecast constitute a reasonable good faith anticipation of orders to
+        be placed. SAVI may also request of DEALER from time to time expected orders to
+        be placed in a given calendar month.
+      </p>
+
+      <p>
+        <i>c.) Cancellation of Purchase Orders: </i>
+        SAVI reserves the right to cancel any pending PO in the event that DEALER
+        fails to pay amount owed, past due, or if DEALER breaches or fails to comply
+        with the terms of this AGREEMENT, or if DEALER fails to meet the credit
+        requirements established by SAVI.
+      </p>
+
+      <p>
+        <i>d.) Shipments and Expedited Delivery:</i>
+        SAVI will ship PRODUCTS, with appropriate packaging, by reputable carrier, to the
+        address or location designated by DEALER in the PO. SAVI will process any
+        "rush" orders for product placed by DEALER in earnest. Expedited delivery dates
+        may incur added shipping charges.
+      </p>
+
+      <h5>5. PAYMENT</h5>
+
+      <p>
+        <i>a.) General Payment Terms:</i>
+        Payment for
+        orders shall be due prior to PRODUCT shipment unless otherwise agreed by SAVI,
+        or set forth as part of a DEALER program or promotion in which an authorized
+        DEALER participates. All transactions
+        are valued and paid in United States currency. Interest shall accrue on overdue
+        accounts at the rate of 18% per annum or, if lower, the maximum rate allowed by
+        law.
+      </p>
+
+      <p>
+        <i>b.) Credit Terms:</i>
+        SAVI may extend, at its discretion, certain credit terms to DEALER, and
+        shipments may be sent
+        pursuant to such credit terms. Such terms may be established in writing
+        according to SAVI's standard credit application and agreement, or set forth as
+        part of a DEALER program or promotion in which an authorized DEALER
+        participates. If DEALER defaults on its obligations pertaining to any such
+        credit terms, SAVI may declare all amounts immediately due, as well as any
+        other remedies pursuant to the credit agreement or at law or equity. SAVI also
+        reserves the right to limit, with respect to any PO, shipment, or the credit
+        available to DEALER.
+      </p>
+
+      <p>
+        <i>c.) Title:</i>
+        Title to the PRODUCTS, including risk of loss, will pass
+        to DEALER upon delivery of the PRODUCTS by SAVI to the carrier at SAVI's point
+        of shipment. SAVI shall have no responsibility to insure shipments.
+      </p>
+
+      <p>
+        <i>d.) Taxes:</i>
+        DEALER shall pay when due all
+        taxes, fees, levies, duties and other payments required in connection with the
+        importation, distribution and sales of PRODUCTS, including without limitation
+        any related income tax liability.
+      </p>
+
+      <h5>6. RETURNS</h5>
+
+      <p>
+        <i>a.) General Terms:</i>
+        DEALER shall have the right to return, subject to terms
+        hereof and at SAVI's expense, for a full credit or refund, any PRODUCTS that
+        <i>(i)</i> are shipped in error or were not ordered pursuant to DEALER Purchase
+        Order; or <i>(ii)</i> are damaged or defective <i>(but not including damage
+        incurred during shipment)</i>. In any of the foregoing
+        events, DEALER shall notify SAVI within five (5) days of the receipt of the
+        subject PRODUCTS, including a reasonable explanation for the return. SAVI
+        reserves the right to deny any return for which notice is not given within the
+        applicable notification period, or in the case of subsection <i>(ii)</i> above,
+        if the damage is caused by
+        the negligence or willful misconduct of DEALER or its representative or agents.
+        If DEALER is eligible to return the PRODUCTS, SAVI will provide DEALER with a
+        Return Merchandise Authorization ("RMA") number and related return
+        instructions. Failure to obtain an RMA number, and/or to comply with the return
+        instructions may result in denial of the return, or of some or all of the
+        credit or refund amount. If upon examination, SAVI determines that any returned
+        PRODUCTS were improperly returned or are not eligible for return, then SAVI
+        reserves the right to send PRODUCT back to DEALER. This return policy is
+        subject to change or modification from time to time consistent with SAVI's
+        standard return policies, which are incorporated herein by reference.
+      </p>
+
+      <p>
+        <i>b.) Definition of "Defective":</i>
+        For purposes of Section 6.a.) the term "defective" shall mean any PRODUCT that
+        is not performing in accordance with the limited warranty associated with such
+        upon inspection by DEALER.
+      </p>
+
+      <p>
+        <i>c.) No Unauthorized Returns:</i>
+        DEALER shall not return any PRODUCTS
+        except as expressly permitted under Section 6.a.), and SAVI shall have no
+        obligation to accept any other returns. All returns not in compliance with
+        Section 6.a.) shall at SAVI's option, in addition to the right of return and
+        other remedies set forth in Section 6.a.), be subject to a handling charge due
+        to SAVI from DEALER equal to twenty percent 20% of the price for the returned
+        PRODUCTS on SAVI's then-current price list plus any freight, insurance or
+        similar charges previously paid or incurred by SAVI in connection with the
+        original shipment of such PRODUCTS to DEALER.
+      </p>
+
+      <h5>7. TRADEMARKS</h5>
+
+      <p>
+        <i>a.) Trademark Use:</i>
+        SAVI hereby grants
+        DEALER a limited license to use, exhibit, display, reproduce and publish SAVI's
+        trade names, trademarks and service marks associated with the PRODUCTS in order
+        to promote and sell the PRODUCTS. DEALER shall comply with SAVI's trademark
+        usage guidelines, as may be modified from time to time, which are available
+        upon request.
+      </p>
+
+      <p>
+        <i>b.) Trademark Ownership:</i>
+        SAVI has and
+        shall retain exclusive ownership of all trademarks, trade names and PRODUCT
+        names relating to SAVI or PRODUCTS whether listed in catalog or marketing
+        materials or otherwise ("SAVI marks"). Neither DEALER nor its affiliates shall
+        directly or indirectly contest or challenge, or do anything inconsistent with
+        SAVI's exclusive ownership of the SAVI marks. DEALER shall not alter, deface,
+        remove, cover, mutilate or add to the SAVI marks, except that if required by
+        relevant regulations DEALER may attach labels in the local language, and/or
+        inserts or information in PRODUCT containers.
+      </p>
+
+      <p>
+        <i>c.) SAVI Content:</i>
+        SAVI may provide to
+        DEALER, without limitation, PRODUCT advertising and promotional materials, as
+        well as specifications, images, and other textual, graphical and/or multimedia
+        content regarding the PRODUCTS for use in preparing advertising and promotional
+        material ("SAVI content"). Subject to any limitations which SAVI places on the
+        use of SAVI Content by notification to DEALER, SAVI hereby grants DEALER a
+        license to use, exhibit and display, reproduce and publish (but not to modify,
+        alter or amend) such SAVI Content for the purpose of advertising and promoting
+        the PRODUCTS.
+      </p>
+
+      <p>
+        <i>d.) Use After Termination:</i>
+        Upon expiration or termination of this AGREEMENT, unless otherwise notified by SAVI,
+        DEALER shall be permitted to continue to advertise and promote the PRODUCTS,
+        using the SAVI Marks and SAVI Content, all in accordance with Section 7.a.),
+        7.b.), and 7.c.), only until DEALER has depleted its inventory of the PRODUCTS.
+        Thereafter, any license granted hereunder shall terminate and any use by DEALER
+        of the SAVI marks and/or SAVI content shall be immediately discontinued without
+        demand or judicial resolution.
+      </p>
+
+      <h5>8. CONFIDENTIALITY</h5>
+
+        <p>These terms and any information marked or identified as confidential, or
+        regardless of form or markings is of the nature that a reasonable person
+        would understand its owner would not want it disclosed to the public will be
+        considered to be "confidential information." Further, confidential
+        information shall also include <i>(a)</i> this AGREEMENT and its terms;
+        <i>(b)</i> technical matters concerning SAVI's trade secret processes or
+        devices, knowhow, data, formulas, inventions <i>(whether or not patentable or
+        copyrighted)</i>, specifications and characteristics of PRODUCTS or services
+        planned or being developed, and research subjects, methods and results,
+        <i>(c)</i> SAVI's pricing, policies, markets and sales strategies, <i>(d)</i>
+        matters relating to SAVI's project initiatives and designs, or <i>(e)</i>
+        other information of a similar nature not generally disclosed to the public.
+        Each party agrees not to disclose confidential information except to its own
+        employees, or a third party bound by similar confidentiality obligations that
+        are no less protective than this Section 8, and that have a need to know to
+        perform their responsibilities. Each party agrees to take at least the same
+        precautions to protect confidential information as such party would utilize
+        to ensure the protection, confidentiality and security of its own
+        confidential information. Confidential information shall not include any
+        information which <i>(a)</i> is or becomes generally known or available
+        through no act or failure to act by the receiving party; <i>(b)</i> is
+        already known by the receiving party as evidenced by its written records;
+        <i>(c)</i> is hereafter rightfully furnished to the receiving party by a
+        third party without restriction on disclosure; or <i>(d)</i> is disclosed in
+        response to a valid order by a court or other governmental body, or pursuant
+        to the rules and regulations of any stock exchange or stock association in
+        which the securities of the receiving party may be traded from time to time,
+        provided that the receiving party provides the disclosing party with prior
+        written notice of such disclosure as soon as reasonably possible in order to
+        permit the disclosing party to seek confidential treatment of such
+        information. Upon the expiration or earlier termination of this AGREEMENT, a
+        party may, in writing, request either the prompt return or destruction, and a
+        written certification of such destruction, of any confidential information
+        provided to the other party. Each party further agrees that monetary damages
+        may not alone be a sufficient remedy for unauthorized disclosure of
+        confidential information and that the non-disclosing party shall be entitled
+        to seek all remedies and damages available in law and equity, including but
+        not limited to such injunctive relief as may be deemed proper by a court of
+        competent jurisdiction.
+      </p>
+
+      <h5>9. ADDITIONAL OBLIGATIONS OF SAVI</h5>
+
+      <p>
+        <i>a.) PRODUCT Materials:</i> SAVI shall provide to DEALER access to
+        marketing and technical information prepared by SAVI relating to the
+        PRODUCTS, service, manuals, PRODUCT specifications, end-user warranties and
+        other PRODUCT data and materials online through www.savicontrols.com/dealer.
+        SAVI shall provide such PRODUCT Materials in English, and may provide them in
+        other languages. If SAVI does not produce the PRODUCT Materials, or any part
+        of them, in a language required by DEALER, then DEALER may, at its own
+        expense and in good faith consult with SAVI, translate or obtain the
+        translation of such PRODUCT Materials into such other language; provided that
+        DEALER shall be required to obtain SAVI's approval, which shall not be
+        unreasonably withheld, of any translation and adaptation of the PRODUCT
+        Materials prior to distribution. DEALER shall indemnify and hold harmless
+        SAVI from and against any and all damages, claims, losses or other expenses
+        resulting from any mistake or omission in any translation or adaptation
+        prepared by or on behalf of DEALER.
+      </p>
+
+      <p>
+        <i>b.) Training:</i> Subject to reservation
+        scheduling to ensure space availability, DEALER will be eligible to attend
+        training programs at SAVI's training facilities at charges agreed upon by both
+        parties. DEALER agrees to make available a reasonable number of its personnel
+        for such training, and agrees that travel and related costs (if any) are DEALER
+        responsibility.
+      </p>
+
+      <p>
+        <i>c.) Compliance: </i>SAVI shall manufacture
+        its PRODUCTS in compliance with applicable laws and will in accordance with
+        applicable UL (Underwriter's Laboratory) listing standards. SAVI will make
+        commercially reasonable efforts to notify DEALER as soon as practicable
+        following the discovery by SAVI of any material non-compliance with applicable
+        laws, or SAVI's receipt of a notice of a claim from a consumer, <i>(which individually or in the aggregate in
+        SAVI's reasonable expectation may result in material liability to DEALER)</i>
+        that a PRODUCT is defective or does not comply with all applicable laws.
+      </p>
+
+      <h5>10. REPRESENTATIONS AND WARRANTIES</h5>
+
+      <p>
+        <i>a.) SAVI Representation and Warranties:</i> SAVI represents and
+        warrants to DEALER that <i>(i)</i> it has the authority to enter into
+        this AGREEMENT and to sell the PRODUCTS to DEALER, free and clear of all
+        liens, charges, encumbrances, or other restrictions, and that the persons
+        signing this AGREEMENT on behalf of SAVI are authorized to sign;
+        <i>(ii)</i> it will provide a manufacturer's warranty to end-users of the
+        PRODUCTS that is generally consistent with industry standards, which will
+        constitute SAVI's only warranty regarding the PRODUCTS; <i>(iii)</i> it
+        will comply with all applicable federal, state, and local laws and
+        regulations in performing its obligations under this AGREEMENT, including
+        but not limited to laws and regulations pertaining to PRODUCT design,
+        manufacture, packaging and labeling and, if applicable, importation and
+        the Foreign Corrupt Practices Act; and <i>(iv)</i> the PRODUCTS are not
+        trans-shipped for the purpose of mislabeling, evading quota or country of
+        origin restrictions or for the purpose of avoiding compliance with law.
+      </p>
+
+      <p>
+        <i>b.) DEALER Representation and Warranties:</i> DEALER represents and
+        warrants to SAVI that <i>(i)</i> it has the authority to enter into this
+        AGREEMENT, and that the persons signing this AGREEMENT on behalf of
+        DEALER are authorized to sign; <i>(ii)</i> it will comply with all
+        applicable federal, state, and local laws, and that it will not export or
+        ship any PRODUCTS outside of the United States except in strict
+        compliance with any export-related laws and regulations; <i>(iii)</i> it
+        will exert commercially reasonable efforts to promote and sell the
+        PRODUCTS consistent with DEALER sales, marketing and merchandising plans,
+        and <i>(iv)</i> it will not make false or misleading representations, or
+        otherwise make any disparaging statement, about SAVI or any PRODUCT.
+      </p>
+
+      <h5>11. LIMITATION OF LIABILITY</h5>
+      <p>
+        Neither party makes any representations nor warranties, express or
+        implied, regarding the business results that the other may obtain as a
+        consequence of this AGREEMENT or the transactions contemplated hereby.
+        Except as set forth in, and only to the extent of, the end-user warranty
+        pursuant to which SAVI extends certain warranty protection to the
+        end-user. The PRODUCTS are being sold "AS IS," and SAVI makes no warranty
+        to DEALER, express or implied, including any warranty of merchantability
+        or fitness for a particular purpose. Except with regard to the provisions
+        of this AGREEMENT relating to confidential information and intellectual
+        property rights. Neither party will be liable for lost profits or lost
+        savings, incidental, indirect, consequential, special, exemplary or
+        punitive damages, except with regard to the provisions of this AGREEMENT
+        relating to confidential information and intellectual property rights,
+        neither party's liability shall exceed in the aggregate amount paid or
+        owed to SAVI during the prior (12) months from the date such liability
+        arise or $5,000.00, whichever is more.
+      </p>
+
+      <h5>
+        12. TERM AND TERMINATION
+      </h5>
+
+      <p>
+        <i>a.) Term:</i> This AGREEMENT will be effective for an initial term
+        commencing on the date that this AGREEMENT is executed by SAVI and
+        continuing thereafter until December 31 of the same year (the "Initial
+        Term"). Unless sooner terminated as provided herein, upon the expiration
+        of the Initial Term, this AGREEMENT will automatically renew for
+        successive periods of one (1) year each <i>(each, a "renewal term")</i>
+        unless terminated at the end of the initial term or any renewal term by
+        either party by delivering written notice of the intent to terminate at
+        least sixty (30) days prior to the end of the initial term or renewal
+        term, as applicable.
+      </p>
+
+      <p>
+        <i>b.) Termination:</i> Either party may terminate this AGREEMENT at any
+        time without cause upon delivering sixty (60) days written notice to the
+        other party. In the event either party is in material breach of this
+        AGREEMENT, this AGREEMENT may be terminated immediately by the
+        non-breaching party, provided that notice describing the breach is
+        presented to the breaching party. Rectifying the conditions of the breach
+        within fifteen days (15) after receiving notice, and reporting that the
+        breech has been rectified will in effect nullify the termination notice.
+      </p>
+
+      <p>
+        <i>c.)Termination Events:</i> <i>(1)</i> Without cause. Upon expiration
+        or termination of this AGREEMENT without cause by either party, DEALER
+        shall either, at SAVI's option:<i>(i)</i> be permitted to complete
+        sell-through of its remaining PRODUCT inventory; or <i>(ii)</i> return
+        its remaining PRODUCT inventory to SAVI, with the return freight expenses
+        to be borne by the terminating party. <i>(2)</i> For Cause. Upon
+        termination of this AGREEMENT by either party for cause due to the other
+        party's breach, DEALER shall either, at SAVI's option:<i>(i)</i> be
+        permitted to complete sellthrough of its remaining PRODUCT inventory; or
+        <i>(ii)</i> return its remaining PRODUCT inventory to SAVI at the
+        breaching party's expense.
+      </p>
+
+      <h5>
+        13. INDEMNIFICATION
+      </h5>
+
+      <p>
+        <i>a.) By SAVI:</i> SAVI will indemnify, defend, and hold DEALER, and its
+        agents and employees, harmless from and against any and all claims,
+        actions, liabilities, losses, costs and expenses (a "claim") arising from
+        <i>(i)</i> a PRODUCT recall, whether initiated by SAVI or a valid order
+        by a court or other governmental body; <i>(ii)</i> claims that the
+        PRODUCTS or any SAVI Content infringe, misappropriate or injure a third
+        party's intellectual property or proprietary rights; and <i>(iii)</i>
+        false or misleading PRODUCT specifications provided to DEALER to promote
+        and sell the PRODUCTS. DEALER agrees to give SAVI prompt written notice
+        of any claim, to tender the defense to SAVI, and to grant SAVI the right
+        to control settlement and resolution. SAVI agrees to pay all costs of
+        liability, settlement and defense, including its attorney fees and costs.
+        If it deems appropriate to limit or reduce its potential liability
+        arising from a claim, SAVI may cause DEALER to limit, suspend or
+        terminate distribution of any PRODUCT or PRODUCTS, in one or more
+        territories or countries, pending resolution of the claim provided;
+        however that in the event of a suspension or termination of distribution
+        pursuant to the foregoing, SAVI will accept a return of, and will
+        reimburse DEALER at the price paid for DEALER existing inventory of
+        suspended or terminated PRODUCT. Furthermore, if SAVI receives written
+        notice of an alleged infringement or believes that a claim of
+        infringement is likely, SAVI may at its sole option and expense:
+        <i>(1)</i> procure for DEALER the right to continue to use PRODUCT at
+        SAVI's sole expense; <i>(2)</i> modify SAVI's PRODUCT so that it no
+        longer infringes; <i>(3)</i> replace the infringing portion of PRODUCT
+        with material(s) that do not infringe, or <i>(4)</i> terminate this
+        AGREEMENT.
+      </p>
+
+      <p>
+        <i>b.) By DEALER:</i> DEALER will indemnify, defend, and hold SAVI, its
+        parent, affiliates, agents and employees harmless from and against any
+        and all claims arising from DEALER negligence or willful misconduct, and
+        from DEALER breach of this AGREEMENT including making any false or
+        misleading statements about PRODUCT. SAVI agrees to give DEALER prompt
+        written notice of any such claims, to tender the defense to DEALER,
+        cooperate fully with any investigative or other requests, and to grant
+        DEALER the right to control settlement and resolution. DEALER agrees to
+        pay all costs finally awarded by a court of competent jurisdiction or
+        agreed in a settlement of any such claim, including reasonable attorney
+        fees and costs.
+      </p>
+
+      <h5>
+        14. ASSIGNMENT
+      </h5>
+
+      <p>
+        This AGREEMENT and any rights or obligations hereunder may not be
+        assigned by either party without first obtaining the other party's
+        express written consent, which consent shall not be unreasonably
+        withheld; provided, however, that SAVI may assign this AGREEMENT, without
+        obtaining express written consent by DEALER to <i>(a)</i> a successor
+        corporation resulting from a merger or consolidation or to a purchaser of
+        all or substantially all of SAVI's assets or a majority, or controlling
+        interest in SAVI's voting stock; and <i>(b)</i> a present or future
+        subsidiary or affiliate. Any attempted assignment in violation of this
+        AGREEMENT shall be null and void.
+      </p>
+
+      <h5>
+        15. FORCE MAJEURE
+      </h5>
+
+      <p>
+        Neither party shall be in breach of this AGREEMENT solely due to causes
+        beyond the control and without the fault or negligence of such party.
+        Such causes may include, but are not restricted to, acts of God or of a
+        public enemy, acts of the government in either its sovereign or
+        contractual capacity, fires, floods, epidemics, quarantine restrictions,
+        strikes, freight embargoes, power failure, or failure of the customary
+        delivery systems, but in every case the failure to perform must be beyond
+        the control and without fault or negligence of the party failing to
+        perform. Each party must inform the other of any force majeure event
+        within five (5) business days after such party became aware of its
+        occurrence, and within reason.
+      </p>
+
+      <h5>
+        16. NOTICES
+      </h5>
+
+      <p>
+        All notices and other communications which are required or permitted
+        under this AGREEMENT shall be in writing and shall be deemed to have been
+        duly given if hand-delivered or mailed by either registered or certified
+        mail, return receipt requested, or by a nationally recognized overnight
+        courier service, receipt confirmed.
+      </p>
+
+      <p>
+        In the case of notices via first-class mail or courier service, notices
+        shall be deemed effective upon the date of receipt. Notices shall be
+        addressed to the parties as set forth on the signature page of this
+        AGREEMENT, unless either party notifies the other of a change of address
+        in accordance with this Section 16, in which case the latest noticed
+        address shall be used.
+      </p>
+
+      <h5>
+        17. GENERAL
+      </h5>
+
+      <p>
+        <i>a.) Relationship of the Parties:</i> The relationship between the
+        parties shall be that of independent contractors. Nothing herein shall be
+        construed as creating or constituting any agency or employment
+        relationship, partnership, or joint venture between the parties.
+      </p>
+
+      <p>
+        <i>b.) Governing Law, Jurisdiction:</i> This AGREEMENT shall be governed
+        by and interpreted under the laws of the State of Texas. SAVI and DEALER
+        expressly consent and submit to the exclusive jurisdiction of the state
+        and federal district courts located in Dallas, TX.
+      </p>
+
+      <p>
+        <i>c.) Enforceability:</i> If any provision of this AGREEMENT is held to
+        be unenforceable by a court of competent jurisdiction, such provision
+        shall be more narrowly and equitably construed so that it becomes legal
+        and enforceable or if such construction is not possible, then the
+        provision shall be deemed removed, and in either case the entire Terms
+        shall not fail on account thereof and the balance of the Terms shall
+        continue in full force and effect.
+      </p>
+
+      <p>
+        <i>d.) No Waiver:</i> Any of the provisions of this AGREEMENT may be
+        waived by the party entitled to the benefit thereof. Neither party will
+        be deemed, by any act or omission, to have waived any of its right or
+        remedies hereunder unless such waiver is in writing and signed by the
+        waiving party, and then only to the extent specifically set forth in such
+        writing. A waiver with reference to one event will not be construed as
+        continuing or as a bar to or waiver of any other right or remedy, or as
+        to a subsequent event.
+      </p>
+
+      <p>
+        <i>e.) Counterparts and Electronic Signature:</i> This AGREEMENT may be
+        executed in one or more counterparts, each of which shall be deemed an
+        original but all of which together will constitute, and have the same
+        force and effect as, one and the same instrument or an original executed
+        document.
+      </p>
+
+      <p>
+        <i>f.) Entire Terms, Amendments:</i> This AGREEMENT contains the entire
+        AGREEMENT between the parties with respect to the subject matter hereof,
+        and supersedes and replaces all prior agreements, negotiations and oral
+        understandings, if any. This AGREEMENT may not be amended, supplemented,
+        or modified in any way, except by an amendment in writing and signed by
+        authorized representatives of the parties. No amendment shall be effected
+        by the acknowledgment or acceptance of a purchase order, invoice, or
+        other forms stipulating additional or different terms. This AGREEMENT
+        shall inure to the benefit of and be binding upon each of the parties and
+        their respective successors, assigns, heirs, executors, administrators,
+        and trustees. <i>g.) Equitable Relief:</i> The parties agree that a
+        breach of Section 8 CONFIDENTIALITY of this AGREEMENT, or of any
+        provision affecting the ownership of the SAVI IP <i>(intellectual
+        property)</i> shall result in immediate and irreparable harm for which
+        ordinary damages may not be a sufficient remedy. Therefore, the parties
+        agree that in the event of any such breach, the non-breaching party may
+        seek equitable relief, including without limitation an injunction or
+        other restraint, in any court of competent jurisdiction, without the
+        necessity of posting any bond, in addition to any other relief to which
+        such non-breaching party may be entitled at law or in equity.
+      </p>
+
+      <p>
+        <i>h.) Headings:</i> Section headings used in this AGREEMENT are for the
+        purposes of convenience only and shall not affect the legal
+        interpretation of this AGREEMENT.
+      </p>
+
+      <p>
+        <i>i.) Survival:</i> The expiration or termination of this AGREEMENT
+        shall not terminate vested rights of either party from any liabilities or
+        obligations incurred under this AGREEMENT prior to or which by their
+        nature are intended to survive expiration or termination, including but
+        not limited to provisions relating to confidentiality, indemnification,
+        and proprietary rights.
+      </p>
+
+      <h4>SCHEDULE A</h4>
+
+      <p>
+        Certain Conditions and DEALER Obligations:
+      </p>
+
+      <p>
+        <b>A. the SAVI PRODUCTS covered by this AGREEMENT are:</b>
+      </p>
+
+      <p>
+        Audio/Video, Automation and Control: SAVI Software, SAVI Hardware, Custom
+        SAVI Software, Custom SAVI Hardware, Software Licensing, Audio/Video
+        Components, Networking, Accessories and Services.
+      </p>
+
+      <p>
+        <b>B. the approved primary location:</b>
+      </p>
+
+      <p>
+        As provided as the primary place of business documented in the SAVI
+        Dealer Application.
+      </p>
+
+      <p>
+        <b>In performance under the AGREEMENT, DEALER shall do the following:</b>
+      </p>
+
+      <p>
+        Sell and distribute PRODUCT only to bona fide end users; not market, sell
+        or distribute PRODUCT to wholesalers or sub-dealers, and also not market
+        or sell PRODUCT by means of the Internet or any web site, or other
+        commercial on-line service, unless DEALER has obtained SAVI's express,
+        prior written approval.
+      </p>
+      <p>
+        Sell the Products only at approved locations unless DEALER has a separate
+        written agreement with SAVI authorizing the sale of the Products by other
+        means.
+      </p>
+      <p>
+        Not purchase PRODUCT offered by SAVI from any source other than SAVI, or
+        an authorized distribution agent. Nothing herein shall be deemed to
+        authorize or grant DEALER the right to state or imply in any manner that
+        DEALER is authorized to promote or sell any SAVI products other than the
+        PRODUCT which a DEALER is authorized to purchase and resell pursuant to
+        this AGREEMENT and DEALER further agrees that it will not state or imply
+        in any medium anything to the contrary.
+      </p>
+
+      <h5>
+        C. In performance under the AGREEMENT, DEALER shall do the following:
+        (continued)
+      </h5>
+
+      <p>
+        Refrain from engaging in any unfair competitive practices, including but
+        not limited to product disparagement and bait and switch practices, and
+        comply with all applicable present and future federal, state, county and
+        local laws, ordinances and regulations of all duly constituted
+        authorities.
+      </p>
+      <p>
+        Maintain its business establishment in an attractive, clean, orderly and
+        sanitary condition and maintain all its fixtures and furnishings in good
+        condition and repair.
+      </p>
+      <p>
+        Display the PRODUCT and all promotional material pertaining thereto and
+        maintain adequate stocks and facilities thereof, as applicable.
+      </p>
+      <p>
+        Obtain training from SAVI for DEALER personnel, and directly provide
+        ongoing training of its sales personnel in connection with the
+        demonstration, use and sale of the PRODUCT.
+      </p>
+      <p>
+        Make prompt payment of all invoices in accordance with the terms thereof
+        (all terms commence on date of invoice) rendered by SAVI to DEALER in
+        connection with such PRODUCT as may, from time to time, be sold by SAVI
+        to DEALER.
+      </p>
+      <p>
+        Immediately forward to SAVI information concerning all charges,
+        complaints, or claims of damage relating to any of the PRODUCT that may
+        come to DEALER's attention.
+      </p>
+      <p>
+        Purchase from SAVI the minimum quantity, if any, of Products as may be
+        required during the term of the AGREEMENT under any applicable
+        independent DEALER program, or otherwise set forth in writing prior to
+        execution of the AGREEMENT, as may be adjusted by SAVI from time to time
+        as permitted under such DEALER program or upon thirty (30) days prior
+        written notice to DEALER. In addition, certain additional minimum
+        purchase obligations may be required to become eligible for price
+        discounts or credit terms, if any, that may be offered by SAVI under any
+        DEALER program from time to time; provided that no such program shall
+        apply to DEALER unless set forth in writing and expressly extended to
+        DEALER by SAVI.
+      </p>
+      <p>
+        11. <i>(a)</i> Not separate any software sold or bundled/packaged with any
+        PRODUCT from such PRODUCT or sell, license or distribute such software on
+        a standalone basis, <i>(b)</i> only distribute such software on those
+        terms and conditions as SAVI may, from time to time require, and
+        <i>(c)</i> not remove, translate or modify the contents of documentation
+        of or related to such software, including, without limitation, any end
+        user license agreements or warranty statements.
+      </p>
+      <p>
+        Without in any manner prejudicing the right of SAVI to claim that any
+        other breach or default of this AGREEMENT on the part of DEALER
+        constitutes a material breach or default, it is understood and agreed
+        that the failure of DEALER to comply with the provisions of the foregoing
+        subdivisions of this SCHEDULE A shall constitute a material breach and
+        default of this AGREEMENT on the part of DEALER.
+      </p>
+      <p>
+        For the purpose of verifying compliance by DEALER with the provisions of
+        the foregoing subdivisions of this SCHEDULE A, DEALER agrees that SAVI
+        and its representatives will be permitted full access to and will be
+        permitted to make copies of or abstracts from the books and records
+        relating to PRODUCTS sold by SAVI to DEALER and will be permitted to
+        audit such books and records at reasonable intervals.
+      </p>
+      <p>
+        Pending the completion of any such audit, SAVI shall have the right to
+        delay shipments of PRODUCT to DEALER.
+      </p>
+      <p>
+        CONSTRUCTION OF AGREEMENT: This AGREEMENT shall be construed according to
+        the laws of the State of Texas.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect btn-flat ">Close</a>
+    </div>
+  </div>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+
+  <!-- Google Analytics + reCAPTCHA -->
+  <script src='https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit' async defer></script>
 
   </body>
 </html>

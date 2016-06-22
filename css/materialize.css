@@ -2591,7 +2591,7 @@ input[type="search"]::-webkit-search-decoration {
  */
 fieldset {
   border: 1px solid #c0c0c0;
-  margin: 0 2px;
+  margin: 20px 2px;
   padding: 0.35em 0.625em 0.75em;
 }
 
@@ -4899,7 +4899,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: #26A69A;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
@@ -4907,7 +4907,7 @@ small {
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #2bbbad;
+  background-color: #1F897F;
 }
 
 .btn-floating {
@@ -4920,7 +4920,7 @@ small {
   height: 37px;
   line-height: 37px;
   padding: 0;
-  background-color: #26a69a;
+  background-color: #26A69A;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
@@ -4937,7 +4937,7 @@ small {
 }
 
 .btn-floating:hover {
-  background-color: #26a69a;
+  background-color: #4f8a94;
 }
 
 .btn-floating:before {
@@ -5601,8 +5601,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #26a69a;
-  box-shadow: 0 1px 0 0 #26a69a;
+  border-bottom: 1px solid #26A69A;
+  box-shadow: 0 1px 0 0 #26A69A;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -5646,8 +5646,8 @@ input[type=search].valid,
 input[type=search]:focus.valid,
 textarea.materialize-textarea.valid,
 textarea.materialize-textarea:focus.valid {
-  border-bottom: 1px solid #4CAF50;
-  box-shadow: 0 1px 0 0 #4CAF50;
+  border-bottom: 1px solid #4f8a94;
+  box-shadow: 0 1px 0 0 #4f8a94;
 }
 
 input:not([type]).valid + label:after,
@@ -5790,6 +5790,7 @@ textarea.materialize-textarea + label:after {
   top: 0.8rem;
   left: 0.75rem;
   font-size: 1rem;
+  font-weight: 300;
   cursor: text;
   transition: .2s ease-out;
 }
@@ -5970,12 +5971,12 @@ textarea.materialize-textarea {
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:before,
 [type="radio"].with-gap:checked + label:after {
-  border: 2px solid #26a69a;
+  border: 2px solid #26A69A;
 }
 
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:after {
-  background-color: #26a69a;
+  background-color: #26A69A;
   z-index: 0;
 }
 
@@ -6041,7 +6042,7 @@ form p:last-child {
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
-  left: -9999px;
+  /*left: -9999px;*/
   opacity: 0;
 }
 
@@ -6052,6 +6053,7 @@ form p:last-child {
 [type="checkbox"] + label {
   position: relative;
   padding-left: 35px;
+  padding-top: 5px;
   cursor: pointer;
   display: inline-block;
   height: 25px;
@@ -6078,7 +6080,7 @@ form p:last-child {
   z-index: 0;
   border: 2px solid #5a5a5a;
   border-radius: 1px;
-  margin-top: 2px;
+  margin-top: 8px;
   transition: .2s;
 }
 
