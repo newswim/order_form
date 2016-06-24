@@ -39,12 +39,12 @@
         <!-- <li><a class="modal-trigger" href="#pp_modal">Privacy Policy</a></li> -->
       <!-- </ul> -->
 
-      <ul id="nav-mobile" class="side-nav">
+      <!-- <ul id="nav-mobile" class="side-nav">
         <li><a class="modal-trigger" href="#agreement_modal">Dealer Agreement</a></li>
         <li><a class="modal-trigger" href="#terms_modal">Terms of Service</a></li>
         <li><a class="modal-trigger" href="#pp_modal">Privacy Policy</a></li>
       </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
     </div>
   </nav>
   <div class="section no-pad-bot" id="index-banner">
@@ -186,12 +186,12 @@
               Residential: <span id="res_label"> 0 </span> %
             </div>
 
-            <p class="col s6">
+            <p class="range-field col s6">
               <label for="label:Residential_Percentage" class="_fw_300 _ftsz_md">% of your business <b>(please use slider)</b></label>
               <input type="range" id="label:Residential_Percentage" name="label:Residential_Percentage" min="0" max="100" required oninput="(document.getElementById('res_label').innerHTML = (this.value)) && (document.getElementById('com_label').innerHTML = (100 - this.value))" />
-            <!-- hidden field for determining commercial percentage, based on residential -->
-              <input type="range" name="label:Commercial_Percentage" hidden="true" min="0" max="100" required disabled />
             </p>
+            <!-- hidden field for determining commercial percentage, based on residential -->
+            <input type="range" name="label:Commercial_Percentage" hidden="true" min="0" max="100" required disabled />
             <div class="col s3 percenters">
               Commercial: <span id="com_label"> 100 </span> %
             </div>
