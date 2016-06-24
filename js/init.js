@@ -17,17 +17,8 @@
 
       // Update commercial range in relation to residential
       var resPerc = $("input[name='label:Residential_Percentage']")
-      var comPerc = $("input[name='label:Commercial_Percentage']")
       // set default vals
       resPerc.val(0)
-      comPerc.val(100)
-      // relate the two
-      resPerc.change(function() {
-        var setter = resPerc.val()
-        if (setter) {
-          comPerc.val(100 - setter)
-        }
-      })
 
       // Copy company name
       $("#dba_same").change(function() {
@@ -42,7 +33,6 @@
       });
 
       // Copying address fields
-
       $('#same_address').change(function() {
         if ($('#same_address').prop('checked')) {
           var Shipping_Street      = $('#lane').val();

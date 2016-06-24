@@ -172,30 +172,26 @@
               </select>
               <label for="label:Annual_Revenue_Range">Number of Employees</label>
             </div>
-
             <!-- <div class="input-field col s12 m6">
               <input name="label:Commercial_Percentage" type="text" class="validate" required />
               <label for="label:Commercial_Percentage">Commercial Percentage</label>
             </div>
-
             <div class="input-field col s12 m6">
               <input name="label:Residential_Percentage" type="text" class="validate" required />
               <label for="label:Residential_Percentage">Residential Percentage</label>
             </div> -->
             <div class="col s3 percenters">
-              Residential: <span id="res_label"> 0 </span> %
+              Commercial: <span id="com_label"> 0 </span> %
             </div>
-
             <p class="range-field col s6">
-              <label for="label:Residential_Percentage" class="_fw_300 _ftsz_md">% of your business <b>(please use slider)</b></label>
-              <input type="range" id="label:Residential_Percentage" name="label:Residential_Percentage" min="0" max="100" required oninput="(document.getElementById('res_label').innerHTML = (this.value)) && (document.getElementById('com_label').innerHTML = (100 - this.value))" />
+              <label for="label:Residential_Percentage" class="_fw_300 _ftsz_md">Percentage of your business <b>(please use slider)</b></label>
+              <input type="range" id="label:Residential_Percentage" name="label:Residential_Percentage" min="0" max="100" required oninput="(document.getElementById('com_label').innerHTML = (this.value)) && (document.getElementById('res_label').innerHTML = (100 - this.value))" />
             </p>
             <!-- hidden field for determining commercial percentage, based on residential -->
             <input type="range" name="label:Commercial_Percentage" hidden="true" min="0" max="100" required disabled />
             <div class="col s3 percenters">
-              Commercial: <span id="com_label"> 100 </span> %
+              Residential: <span id="res_label"> 100 </span> %
             </div>
-
           </div>
 
           <div class="row">
