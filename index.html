@@ -33,11 +33,11 @@
       <a id="logo-container" href="#" class="brand-logo">
         <img class="savi_logo" src="img/logo-savi.svg" />
       </a>
-      <ul class="right hide-on-med-and-down">
-        <li><a class="modal-trigger" href="#agreement_modal">Dealer Agreement</a></li>
-        <li><a class="modal-trigger" href="#terms_modal">Terms of Service</a></li>
-        <li><a class="modal-trigger" href="#pp_modal">Privacy Policy</a></li>
-      </ul>
+      <!-- <ul class="right hide-on-med-and-down"> -->
+        <!-- <li><a class="modal-trigger" href="#agreement_modal">Agreement</a></li>
+        <li><a class="modal-trigger" href="#terms_modal">Terms of Service</a></li> -->
+        <!-- <li><a class="modal-trigger" href="#pp_modal">Privacy Policy</a></li> -->
+      <!-- </ul> -->
 
       <ul id="nav-mobile" class="side-nav">
         <li><a class="modal-trigger" href="#agreement_modal">Dealer Agreement</a></li>
@@ -50,13 +50,13 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center dark_md_cl">SAVI Dealer Application</h1>
+      <h2 class="header center dark_md_cl">SAVI Dealer Application</h2>
       <div class="row center">
-        <h5 class="header col s12 light">
+        <h6 class="header col s12 light">
           Please fill out this form, and confirm that you have read all the supplemental
           documentation. After your application is received, a SAVI Controls representative
           will contact you shortly to review the details.
-        </h5>
+        </h6>
       </div>
       <!-- <div class="row center">
         <a href="http://savicontrols.com" id="download-button" class="btn-large waves-effect waves-light">Go back</a>
@@ -156,9 +156,21 @@
               </select>
               <label for="label:Annual_Revenue_Range">Annual Revenue <small>(optional)</small></label>
             </div>
-            <div class="input-field col s12 m6">
+            <!-- <div class="input-field col s12 m6">
               <input name="noofemployees" type="number" class="validate" required />
               <label for="noofemployees">Number of Employees</label>
+            </div> -->
+
+            <div class="input-field col s12 m6">
+              <select name="label:Number_of_Employees_Range" id="emp_range" required>
+                <option value="" disabled selected>Choose a range</option>
+                <option value="1-10">1-10</option>
+                <option value="10-30">10-30</option>
+                <option value="30-50">30-50</option>
+                <option value="50-100">50-100</option>
+                <option value="+100">+100</option>
+              </select>
+              <label for="label:Annual_Revenue_Range">Number of Employees</label>
             </div>
 
             <!-- <div class="input-field col s12 m6">
@@ -170,17 +182,24 @@
               <input name="label:Residential_Percentage" type="text" class="validate" required />
               <label for="label:Residential_Percentage">Residential Percentage</label>
             </div> -->
-            <p class="range-field col s12 m6">
-              <label for="label:Residential_Percentage" class="_fw_300 _ftsz_md">Residential Percentage</label>
-              <input type="range" id="label:Residential_Percentage" name="label:Residential_Percentage" min="0" max="100" required />
+            <div class="col s3 percenters">
+              Residential: <span id="res_label"> 0 </span> %
+            </div>
+
+            <p class="col s6">
+              <label for="label:Residential_Percentage" class="_fw_300 _ftsz_md">% of your business <b>(please use slider)</b></label>
+              <input type="range" id="label:Residential_Percentage" name="label:Residential_Percentage" min="0" max="100" required oninput="(document.getElementById('res_label').innerHTML = (this.value)) && (document.getElementById('com_label').innerHTML = (100 - this.value))" />
+            <!-- hidden field for determining commercial percentage, based on residential -->
+              <input type="range" name="label:Commercial_Percentage" hidden="true" min="0" max="100" required disabled />
             </p>
-            <p class="range-field col s12 m6">
-              <label for="label:Commercial_Percentage" class="_fw_300 _ftsz_md">Commercial Percentage</label>
-              <input type="range" id="label:Commercial_Percentage" name="label:Commercial_Percentage" min="0" max="100" required />
-            </p>
+            <div class="col s3 percenters">
+              Commercial: <span id="com_label"> 100 </span> %
+            </div>
+
           </div>
 
           <div class="row">
+            <br />
             <h5>Date Established</h5>
             <input
                 name="label:Open_Date"
@@ -256,7 +275,7 @@
             </div>
             <div class="input-field col s12 m6">
               <input name="designation" type="text" class="validate" required />
-              <label for="designation">Designation / Title</label>
+              <label for="designation">Title</label>
             </div>
             <div class="input-field col s12 m6">
               <input name="label:Office_Phone" type="tel" class="validate" required />
@@ -284,12 +303,13 @@
                 <input type="checkbox" name="label:Agree_To_Terms" id="label:Agree_To_Terms" required />
                 <label for="label:Agree_To_Terms" data-error="please select">I agree with the</label>
                 <a class="modal-trigger waves-effect waves-light blue-text" href="#terms_modal"> Terms of Service</a>
+                and <a class="modal-trigger waves-effect waves-light blue-text" href="#pp_modal"> Privacy Policy</a>
               </div>
-              <div class="col s12 m12">
+              <!-- <div class="col s12 m12">
                 <input type="checkbox" name="label:Agree_To_Privacy_Policy" id="label:Agree_To_Privacy_Policy" required />
                 <label for="label:Agree_To_Privacy_Policy">I agree with the </label>
                 <a class="modal-trigger waves-effect waves-light blue-text" href="#pp_modal"> Privacy Policy</a>
-              </div>
+              </div> -->
             </fieldset>
             <br />
             <!-- Google reCAPTCHA snippet -->

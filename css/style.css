@@ -17,6 +17,12 @@ label {
   color: #6d6969 !important
 }
 
+.col.s3.percenters {
+    margin-top: 44px;
+    text-align: center;
+    /*font-size: 1.2em;*/
+}
+
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   margin-top: 14px !important;
