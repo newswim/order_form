@@ -1,3 +1,21 @@
+// May need to use this work-around for required inputs in Safari:
+//
+// $('#idForm').click(function(e) {
+//     e.preventDefault();
+//     var sendModalForm = true;
+//     $('[required]').each(function() {
+//         if ($(this).val() == '') {
+//             sendModalForm = false;
+//             alert("Required field should not be blank."); // or $('.error-message').show();
+//         }
+//     });
+//
+//     if (sendModalForm) {
+//         $('#idForm').submit();
+//     }
+// });
+
+
 (function($){
   $(function(){
     $(document).ready(function() {
