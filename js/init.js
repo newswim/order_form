@@ -113,10 +113,10 @@
 
       /** Adding input masking to some of the fields **/
       $(".fed_ein").mask("99-9999999");
-      $('#phone').mask('(999) 999-9999? x99999')
+      $('#phone').mask('(999) 999-9999')
       $('#fax').mask('(999) 999-9999')
-      $('.sec_phone').mask('(999) 999-9999? x99999')
-      $('.office_phone').mask('(999) 999-9999? x99999')
+      $('.sec_phone').mask('(999) 999-9999')
+      $('.office_phone').mask('(999) 999-9999')
       $('#mobile').mask('(999) 999-9999')
       $('#code').mask('99999')
       $('#_postal').mask('99999')
