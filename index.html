@@ -53,7 +53,7 @@
       <h2 class="header center dark_md_cl">SAVI Dealer Application</h2>
       <div class="row center">
         <h6 class="header col s12 light">
-          Please complete this form, and confirm that you have read all the supplemental
+          Please complete this form and confirm that you have read all the supplemental
           documentation. After receiving your application, a SAVI Controls representative
           will contact you shortly to review the details.
         </h6>
@@ -71,12 +71,13 @@
     <div class="section">
       <div class="row form_outline">
           <form
-              class="col s12"
-              id="dealer_application"
-              action="https://crm.savicontrols.com/modules/Webforms/capture.php"
               method="post"
-              accept-charset="utf-8"
-              enctype="multipart/form-data">
+              action="https://crm.savicontrols.com/modules/Webforms/capture.php"
+              id="dealer_application"
+              class="col s12"
+              enctype="multipart/form-data"
+              accept-charset="utf-8">
+
           <input type="hidden" name="__vtrftk" value="sid:8348f3864b45a55d1f1fec8093dab04ddfdf6e6c,1466018587">
         	<input type="hidden" name="publicid" value="0931cc86b1eba7d0a81b97068d495b64">
 
@@ -90,7 +91,7 @@
               <div class="col s12">
                 <p>
                   <input type="checkbox" id="dba_same" />
-                  <label for="dba_same">Duplicate Legal Business Name as Company Name</label>
+                  <label for="dba_same">Same as Company Name</label>
                 </p>
               </div>
             </div>
@@ -100,7 +101,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s12 m6">
               <select name="label:Form_Of_Business" id="dba_select" required >
                 <option value="" disabled selected>Please choose</option>
                 <option value="Corporation">Corporation</option>
@@ -117,43 +118,56 @@
             <div class="input-field col s12 m6">
               <input
                 name="website"
+                id="website"
                 type="text"
                 pattern="[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}"
-                title="google.com"
+                title="ex: google.com"
                 class="validate"
                 required />
               <label for="website">Website</label>
             </div>
             <div class="input-field col s12 m6">
-              <input name="fax" type="tel" pattern="^\d{3}-?\d{3}-?\d{4}$" title="###-###-####" class="validate" />
+              <input
+                name="fax"
+                id="fax"
+                type="tel"
+                class="validate" />
               <label for="fax">Fax <small>(optional)</small></label>
             </div>
             <div class="input-field col s12 m6">
               <input
                 name="phone"
+                id="phone"
                 type="tel"
-                pattern="^\d{3}-\d{3}-\d{4}$"
-                title="###-###-####"
                 class="validate"
                 required />
               <label for="phone">Primary Phone</label>
             </div>
             <div class="input-field col s12 m6">
-              <input name="label:Secondary_Phone" type="tel" pattern="^\d{3}-?\d{3}-?\d{4}$" title="###-###-####" class="validate" >
+              <input
+                name="label:Secondary_Phone"
+                id="label:Secondary_Phone"
+                type="tel"
+                class="validate sec_phone" >
               <label for="label:Secondary_Phone">Secondary Phone <small>(optional)</small></label>
             </div>
 
             <div class="input-field col s12 m6">
               <input
                 name="label:Federal_ID_(EIN)_or_Canadian_GST_#"
+                id="label:Federal_ID_(EIN)_or_Canadian_GST_#"
                 type="text"
-                pattern="^[1-9]\d?-\d{7}$"
-                class="validate"
+
+                class="validate fed_ein"
                 required />
               <label for="label:Federal_ID_(EIN)_or_Canadian_GST_#">Federal ID (EIN) or Canadian GST (##-#######)</label>
             </div>
             <div class="input-field col s12 m6">
-              <input name="label:Resale_Tax_Certificate" type="text" class="validate" />
+              <input
+                name="label:Resale_Tax_Certificate"
+                id="label:Resale_Tax_Certificate"
+                type="text"
+                class="validate" />
               <label for="label:Resale_Tax_Certificate">Resale Tax Certificate <small>(optional)</small></label>
             </div>
 
@@ -171,7 +185,7 @@
                 <option value="$6M-$10M">$6M-$10M</option>
                 <option value="$10M+">$10M+</option>
               </select>
-              <label for="label:Annual_Revenue_Range">Annual Revenue <small>(optional)</small></label>
+              <label for="rev_range">Annual Revenue <small>(optional)</small></label>
             </div>
             <!-- <div class="input-field col s12 m6">
               <input name="noofemployees" type="number" class="validate" required />
@@ -216,6 +230,7 @@
             <h5>Date Established</h5>
             <input
                 name="label:Open_Date"
+                id="label:Open_Date"
                 type="date"
                 placeholder="When did you start doing business? (click)"
                 class="_todays_date datepicker col m6"
@@ -240,7 +255,7 @@
           <div class="row">
             <div class="input-field col s6">
               <select name="country" id="country" type="text" class="validate browser-default" required autocomplete="on">
-                <option value="" disabled selected>Please choose</option>
+                <option value="" disabled selected>Country</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -575,7 +590,7 @@
               <label for="label:Shipping_Country" id="_country_label">Country</label> -->
 
               <select name="label:Shipping_Country" id="_country" class="validate browser-default" required>
-                <option value="" disabled selected>Shipping Country</option>
+                <option value="" disabled selected>Country</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -886,27 +901,27 @@
           <div class="row">
             <h5>Primary Contact Information</h5>
             <div class="input-field col s12 m6">
-              <input name="firstname" type="text" class="validate" required />
+              <input name="firstname" id="firstname" type="text" class="validate" required />
               <label for="firstname">First Name</label>
             </div>
             <div class="input-field col s12 m6">
-              <input name="lastname" type="text" class="validate" required />
+              <input name="lastname" id="lastname" type="text" class="validate" required />
               <label for="lastname">Last Name</label>
             </div>
             <div class="input-field col s12 m6">
-              <input name="designation" type="text" class="validate" required />
+              <input name="designation" id="designation" type="text" class="validate" required />
               <label for="designation">Title</label>
             </div>
             <div class="input-field col s12 m6">
-              <input name="label:Office_Phone" type="tel" pattern="^\d{3}-?\d{3}-?\d{4}$" class="validate" required />
+              <input name="label:Office_Phone" id="label:Office_Phone" type="tel" class="validate office_phone" required />
               <label for="label:Office_Phone">Office Phone</label>
             </div>
             <div class="input-field col s12 m6">
-              <input name="mobile" type="tel" pattern="^\d{3}-?\d{3}-?\d{4}$" class="validate">
+              <input name="mobile" id="mobile" type="tel" class="validate">
               <label for="mobile">Mobile Phone <small>(optional)</small></label>
             </div>
             <div class="input-field col s12 m6">
-              <input name="email" type="email" class="validate" required />
+              <input name="email" id="email" type="email" class="validate" required />
               <label for="email">Primary Email</label>
             </div>
           </div>
@@ -997,14 +1012,18 @@
   </footer>
 
   <!-- PRIVACY POLICY -->
-
   <div id="pp_modal" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h2>
         Privacy Policy
       </h2>
       <div class="section">
-        <a class="waves-effect btn mg_btm_6" href="privacy.html"><i class="material-icons left">pageview</i>View</a>
+        <a
+          onclick='window.open("privacy.html"); return false'
+          class="waves-effect btn mg_btm_6"
+          href="#">
+          <i class="material-icons left">pageview</i>View
+        </a>
         <a class="btn waves-effect waves-light mg_btm_6" target="_blank" href="https://s3.amazonaws.com/www.savicontrols.com/dealerapp/pdf/privacy.pdf" download><i class="material-icons left">file_download</i>Download</a>
       </div>
       <h4>
@@ -1385,7 +1404,6 @@
     </div>
   </div>
 
-
   <!-- TERMS OF SERVICE -->
   <div id="terms_modal" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -1394,7 +1412,12 @@
         Terms of Service
       </h2>
       <div class="section">
-          <a class="waves-effect btn mg_btm_6" href="terms.html"><i class="material-icons left">pageview</i>View</a>
+          <a
+            onclick='window.open("terms.html"); return false'
+            class="waves-effect btn mg_btm_6"
+            href="#">
+            <i class="material-icons left">pageview</i>View
+          </a>
           <a class="btn waves-effect waves-light mg_btm_6" target="_blank" href="https://s3.amazonaws.com/www.savicontrols.com/dealerapp/pdf/terms_of_service.pdf" download><i class="material-icons left">file_download</i>Download</a>
       </div>
       <p>
@@ -1842,7 +1865,12 @@
         AUTHORIZED SAVI DEALER AGREEMENT
       </h4>
       <div class="section">
-        <a class="waves-effect btn mg_btm_6" href="agreement.html"><i class="material-icons left">pageview</i>View</a>
+        <a
+          onclick='window.open("agreement.html"); return false;'
+          class="waves-effect btn mg_btm_6"
+          href="#">
+          <i class="material-icons left">pageview</i>View
+        </a>
         <a class="btn waves-effect waves-light mg_btm_6" target="_blank" href="https://s3.amazonaws.com/www.savicontrols.com/dealerapp/pdf/dealer_agreement.pdf" download><i class="material-icons left">file_download</i>Download</a>
       </div>
       <p>
@@ -2554,9 +2582,14 @@
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
+  <script src="js/masked_input.min.js"></script>
   <script src="js/init.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.15.10/dev/polyfiller.js"></script>
+  <!-- <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script> -->
+
+  <!-- Custom options for jQuery Validate -->
+  <!-- <script src="js/validate.js"></script> -->
 
   <!-- Google Analytics + reCAPTCHA -->
   <script src='https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit' async defer></script>
