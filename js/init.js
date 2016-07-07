@@ -44,7 +44,7 @@
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 100,   // Creates a dropdown of 15 years to control year
         max: true,
-        format: 'yyyy-mm-dd'
+        format: 'mm-dd-yyyy'
       });
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
       $('.modal-trigger').leanModal();

@@ -72,6 +72,7 @@
       <div class="row form_outline">
           <form
               method="post"
+              name="dealer_form"
               action="https://crm.savicontrols.com/modules/Webforms/capture.php"
               id="dealer_application"
               class="col s12"
@@ -102,7 +103,7 @@
           </div>
           <div class="row">
             <div class="input-field col s12 m6">
-              <select name="label:Form_Of_Business" id="dba_select" required >
+              <select name="label:Form_Of_Business" id="dba_select" class="validate" required >
                 <option value="" disabled selected>Please choose</option>
                 <option value="Corporation">Corporation</option>
                 <option value="Partnership">Partnership</option>
@@ -176,7 +177,7 @@
               <label for="annualrevenue">Annual Revenue <small>(optional)</small></label>
             </div> -->
             <div class="input-field col s12 m12 l6">
-              <select name="label:Annual_Revenue_Range" id="rev_range">
+              <select name="label:Annual_Revenue_Range" id="rev_range" class="validate" required>
                 <option value="" disabled selected>Choose a range</option>
                 <option value="$100K-$500K">$100K-$500K</option>
                 <option value="$500K-$1M">$500K-$1M</option>
@@ -189,7 +190,7 @@
             </div>
 
             <div class="input-field col s12 m12 l6">
-              <select name="label:Number_of_Employees_Range" id="emp_range" required>
+              <select name="label:Number_of_Employees_Range" id="emp_range" class="validate" required>
                 <option value="" disabled selected>Choose a range</option>
                 <option value="1-10">1-10</option>
                 <option value="10-30">10-30</option>
@@ -201,19 +202,13 @@
             </div>
 
             <div class="input-field col s12 m12 l6">
-              <select name="label:Commercial_Percentage" id="com_biz" required>
+              <select name="label:Commercial_Percentage" id="com_biz" class="validate" required>
                 <option value="" disabled selected>Choose a range</option>
                 <option value="i don't know">I don't know</option>
-                <option value="1-10">1-10 %</option>
-                <option value="11-20">11-20 %</option>
-                <option value="21-30">21-30 %</option>
-                <option value="31-40">31-40 %</option>
-                <option value="41-50">41-50 %</option>
-                <option value="51-60">51-60 %</option>
-                <option value="61-70">61-70 %</option>
-                <option value="71-80">71-80 %</option>
-                <option value="81-90">81-90 %</option>
-                <option value="91-100">91-100 %</option>
+                <option value="0-25">0% - 25%</option>
+                <option value="26-50">26% - 50%</option>
+                <option value="51-75">51% - 75%%</option>
+                <option value="76-100">76% - 100%</option>
               </select>
               <label for="label:Commercial_Percentage">What percentage of your business is Commercial?</label>
             </div>
@@ -931,12 +926,12 @@
             <h5 class="mg_btm_20">Authorization</h5>
             <fieldset>
               <div class="col s12 m12">
-                <input type="checkbox" name="label:Dealer_Agreement" id="label:Dealer_Agreement" required />
+                <input type="checkbox" name="label:Dealer_Agreement" id="label:Dealer_Agreement" class="validate" required />
                 <label for="label:Dealer_Agreement" data-error="please select">I agree with the</label>
                 <a class="modal-trigger waves-effect waves-light blue-text" href="#agreement_modal"> Dealer Agreement</a>
               </div>
               <div class="col s12 m12">
-                <input type="checkbox" name="label:Agree_To_Terms" id="label:Agree_To_Terms" required />
+                <input type="checkbox" name="label:Agree_To_Terms" id="label:Agree_To_Terms" class="validate" required />
                 <label for="label:Agree_To_Terms" data-error="please select">I agree with the</label>
                 <a class="modal-trigger waves-effect waves-light blue-text" href="#terms_modal"> Terms of Service</a>
                 and <a class="modal-trigger waves-effect waves-light blue-text" href="#pp_modal"> Privacy Policy</a>
