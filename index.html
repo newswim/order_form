@@ -175,7 +175,7 @@
               <input name="annualrevenue" type="text" class="validate" required />
               <label for="annualrevenue">Annual Revenue <small>(optional)</small></label>
             </div> -->
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12 m12 l6">
               <select name="label:Annual_Revenue_Range" id="rev_range">
                 <option value="" disabled selected>Choose a range</option>
                 <option value="$100K-$500K">$100K-$500K</option>
@@ -185,14 +185,10 @@
                 <option value="$6M-$10M">$6M-$10M</option>
                 <option value="$10M+">$10M+</option>
               </select>
-              <label for="rev_range">Annual Revenue <small>(optional)</small></label>
+              <label for="label:Annual_Revenue_Range">Annual Revenue <small>(optional)</small></label>
             </div>
-            <!-- <div class="input-field col s12 m6">
-              <input name="noofemployees" type="number" class="validate" required />
-              <label for="noofemployees">Number of Employees</label>
-            </div> -->
 
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12 m12 l6">
               <select name="label:Number_of_Employees_Range" id="emp_range" required>
                 <option value="" disabled selected>Choose a range</option>
                 <option value="1-10">1-10</option>
@@ -201,27 +197,25 @@
                 <option value="50-100">50-100</option>
                 <option value="+100">+100</option>
               </select>
-              <label for="label:Annual_Revenue_Range">Number of Employees</label>
+              <label for="label:Number_of_Employees_Range">Number of Employees</label>
             </div>
-            <!-- <div class="input-field col s12 m6">
-              <input name="label:Commercial_Percentage" type="text" class="validate" required />
-              <label for="label:Commercial_Percentage">Commercial Percentage</label>
-            </div>
-            <div class="input-field col s12 m6">
-              <input name="label:Residential_Percentage" type="text" class="validate" required />
-              <label for="label:Residential_Percentage">Residential Percentage</label>
-            </div> -->
-            <div class="col s3 percenters">
-              Commercial: <span id="com_label"> 0 </span> %
-            </div>
-            <p class="range-field col s6">
-              <label for="label:Residential_Percentage" class="_fw_300 _ftsz_md">Percentage of your business <b>(please use slider)</b></label>
-              <input type="range" id="label:Residential_Percentage" name="label:Residential_Percentage" min="0" value="" max="100" required oninput="(document.getElementById('com_label').innerHTML = (this.value)) && (document.getElementById('res_label').innerHTML = (100 - this.value))" />
-            </p>
-            <!-- hidden field for determining commercial percentage, based on residential -->
-            <input type="range" id="label:Commercial_Percentage" name="label:Commercial_Percentage" hidden="true" min="0" max="100" required />
-            <div class="col s3 percenters">
-              Residential: <span id="res_label"> 100 </span> %
+
+            <div class="input-field col s12 m12 l6">
+              <select name="label:Commercial_Percentage" id="com_biz" required>
+                <option value="" disabled selected>Choose a range</option>
+                <option value="i don't know">I don't know</option>
+                <option value="1-10">1-10 %</option>
+                <option value="11-20">11-20 %</option>
+                <option value="21-30">21-30 %</option>
+                <option value="31-40">31-40 %</option>
+                <option value="41-50">41-50 %</option>
+                <option value="51-60">51-60 %</option>
+                <option value="61-70">61-70 %</option>
+                <option value="71-80">71-80 %</option>
+                <option value="81-90">81-90 %</option>
+                <option value="91-100">91-100 %</option>
+              </select>
+              <label for="label:Commercial_Percentage">What percentage of your business is Commercial?</label>
             </div>
           </div>
 
@@ -921,7 +915,14 @@
               <label for="mobile">Mobile Phone <small>(optional)</small></label>
             </div>
             <div class="input-field col s12 m6">
-              <input name="email" id="email" type="email" class="validate" required />
+              <input
+                name="email"
+                id="email"
+                type="email"
+                class="validate"
+                pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"
+                title="ex. name@domain.com"
+                required />
               <label for="email">Primary Email</label>
             </div>
           </div>
@@ -930,12 +931,12 @@
             <h5 class="mg_btm_20">Authorization</h5>
             <fieldset>
               <div class="col s12 m12">
-                <input type="checkbox" name="label:Dealer_Agreement" id="label:Dealer_Agreement" required />
+                <input type="checkbox" name="label:Dealer_Agreement" required />
                 <label for="label:Dealer_Agreement" data-error="please select">I agree with the</label>
                 <a class="modal-trigger waves-effect waves-light blue-text" href="#agreement_modal"> Dealer Agreement</a>
               </div>
               <div class="col s12 m12">
-                <input type="checkbox" name="label:Agree_To_Terms" id="label:Agree_To_Terms" required />
+                <input type="checkbox" name="label:Agree_To_Terms" required />
                 <label for="label:Agree_To_Terms" data-error="please select">I agree with the</label>
                 <a class="modal-trigger waves-effect waves-light blue-text" href="#terms_modal"> Terms of Service</a>
                 and <a class="modal-trigger waves-effect waves-light blue-text" href="#pp_modal"> Privacy Policy</a>

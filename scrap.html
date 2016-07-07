@@ -1,0 +1,12 @@
+<div class="col s3 percenters">
+  Commercial: <span id="com_label"> 0 </span> %
+</div>
+<p class="range-field col s6">
+  <label for="label:Residential_Percentage" class="_fw_300 _ftsz_md">Percentage of your business <b>(please use slider)</b></label>
+  <input type="range" id="label:Residential_Percentage" name="label:Residential_Percentage" min="0" value="" max="100" required oninput="(document.getElementById('com_label').innerHTML = (this.value)) && (document.getElementById('res_label').innerHTML = (100 - this.value))" />
+</p>
+<!-- hidden field for determining commercial percentage, based on residential -->
+<input type="range" id="label:Commercial_Percentage" name="label:Commercial_Percentage" hidden="true" min="0" max="100" required />
+<div class="col s3 percenters">
+  Residential: <span id="res_label"> 100 </span> %
+</div>
